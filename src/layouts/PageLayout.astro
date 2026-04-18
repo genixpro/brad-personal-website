@@ -3,16 +3,96 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import '../styles/global.css';
 
-const { title, description = 'Bradley Arsenault AI services.' } = Astro.props;
+const siteUrl = 'https://www.bradleyarsenault.me';
+const defaultImage =
+  'https://static.wixstatic.com/media/387c90_dd3cb4178c9d4644a817f8a34aaae862%7Emv2.png/v1/fit/w_2500,h_1330,al_c/387c90_dd3cb4178c9d4644a817f8a34aaae862%7Emv2.png';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const titlesByPath: Record<string, string> = {
+  '/case-studies': 'Portfolio | Bradley Arsenault AI Services',
+  '/portfolio': 'Portfolio | Bradley Arsenault AI Services',
+  '/mycreations': 'My Creations | Bradley Arsenault | Freelance AI Engineer',
+  '/code-review-services': 'Code Review | Bradley Arsenault | Freelance AI Engineer',
+  '/code-refactoring-services': 'Code Refactoring | Bradley Arsenault | Freelance AI Engineer',
+  '/software-architecture-advising': 'Software Architecture Advising | Bradley Arsenault | Freelance AI Engineer',
+  '/ai-product-development': 'AI Product Development | Bradley Arsenault | Freelance AI Engineer',
+  '/ai-consulting': 'AI Consulting | Bradley Arsenault | Freelance AI Engineer',
+  '/machine-learning-architecture': 'Machine Learning Architecture | Bradley Arsenault | Freelance AI Engineer',
+  '/presentations': 'Presentations | Bradley Arsenault | Freelance AI Engineer',
+  '/about': 'About Me | Bradley Arsenault | Freelance AI Engineer',
+  '/contact-me': 'Contact me | Bradley Arsenault | Freelance AI Engineer',
+  '/book-an-intro-call': 'Book an Intro Call | Bradley Arsenault | Freelance AI Engineer',
+  '/book-ai-product-brainstorm': 'AI Product Brainstorm | Bradley Arsenault | Freelance AI Engineer',
+  '/resume': 'Resume | Bradley Arsenault | Freelance AI Engineer',
+  '/privacy-policy': 'Privacy Policy | Bradley Arsenault AI Services',
+  '/terms-and-conditions': 'Terms and Conditions | Bradley Arsenault AI Services'
+};
+
+const descriptionsByPath: Record<string, string> = {
+  '/case-studies': 'A portfolio of all the projects created by AI Engineer and Freelancer Bradley Arsenault',
+  '/portfolio': 'A portfolio of all the projects created by AI Engineer and Freelancer Bradley Arsenault',
+  '/mycreations':
+    'A collection of some of the many personal projects and startups created by Brad, including Articulon, PromptDesk, FlowThought, Kwola, SwiftlyAI, and Hypermax.',
+  '/code-review-services':
+    'In my code-review service, I will help introduce your team to better software engineering practices through your existing code review processes.',
+  '/code-refactoring-services':
+    'Code refactoring services from Bradley Arsenault to help improve, modernize, and restructure software systems for better maintainability.',
+  '/software-architecture-advising':
+    'Software architecture advising from Bradley Arsenault for technical decisions, architecture planning, and maintainable system design.',
+  '/ai-product-development':
+    'AI product development services from Bradley Arsenault for building practical AI products, prototypes, and production systems.',
+  '/ai-consulting':
+    'AI consulting from Bradley Arsenault for product strategy, feasibility, implementation planning, and applied machine learning systems.',
+  '/machine-learning-architecture':
+    'Machine learning architecture services from Bradley Arsenault for designing reliable AI and ML systems.',
+  '/presentations': 'Presentations and talks from Bradley Arsenault on AI, software engineering, and product development.',
+  '/about':
+    'Bradley Arsenault is an AI engineer, entrepreneur, freelancer, and product builder specializing in AI product engineering and consulting.',
+  '/contact-me': 'Contact Bradley Arsenault for AI engineering, consulting, product development, and software architecture services.',
+  '/book-an-intro-call': 'Book an intro call with Bradley Arsenault to discuss AI engineering, consulting, and product development.',
+  '/book-ai-product-brainstorm':
+    'Book a no-obligation AI product brainstorming session to discuss your concept, costs, timeline, and feasibility.',
+  '/resume': 'Bradley Arsenault resume for AI engineering, software architecture, product development, and consulting work.',
+  '/privacy-policy': 'Privacy policy for Bradley Arsenault AI Services.',
+  '/terms-and-conditions': 'Terms and conditions for Bradley Arsenault AI Services.'
+};
+
+const {
+  title,
+  description,
+  canonical,
+  image = defaultImage,
+  type = 'website'
+} = Astro.props;
+const pageTitle = titlesByPath[path] ?? title ?? 'Bradley Arsenault | Freelance AI Engineer';
+const pageDescription = description ?? descriptionsByPath[path] ?? 'Bradley Arsenault AI services.';
+const canonicalUrl = canonical ?? `${siteUrl}${path === '/' ? '' : path}`;
+const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="icon" sizes="192x192" href="/assets/site-icon.png" type="image/png" />
+    <link rel="shortcut icon" href="/assets/site-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/site-icon.png" type="image/png" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="2500" />
+    <meta property="og:image:height" content="1330" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Bradley Arsenault AI" />
+    <meta property="og:type" content={type} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={imageUrl} />
+    <title>{pageTitle}</title>
   </head>
   <body class="subpage-body">
     <SiteHeader />

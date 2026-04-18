@@ -13,7 +13,10 @@ type Creation = {
   body: string;
   cta: string;
   href: string;
+  secondaryCta?: string;
+  secondaryHref?: string;
   image: string;
+  alt: string;
 };
 
 type Presentation = {
@@ -32,6 +35,32 @@ type PortfolioProject = {
   image: string;
   ribbon: string;
   tags: string[];
+};
+
+const portfolioTagColors: Record<string, string> = {
+  'AI Evangelism': '#c09a1a',
+  'API Development': '#9a570b',
+  'Audio Processing': '#114279',
+  Automation: '#114279',
+  'Chatbot Technology': '#117916',
+  'Computer Vision': '#117969',
+  'Content Generation': '#114279',
+  'Data Analytics': '#850c55',
+  'Data Extraction & Scraping': '#850c55',
+  'Deep Learning': '#9012c2',
+  'Document Processing': '#117923',
+  Fintech: '#117923',
+  'Generative AI': '#1215c2',
+  'Health Technology': '#2ea21b',
+  'Machine Learning': '#9012c2',
+  'Management Consulting': '#9d0a90',
+  'Mobile App': '#9a250b',
+  'Natural Language Processing': '#117923',
+  'Reinforcement Learning': '#3b1179',
+  'Software Testing': '#9012c2',
+  'Strategy Consulting': '#9a570b',
+  'User Interface Development': '#889a0b',
+  'Voice AI': '#114279'
 };
 
 const servicePages: Record<string, { title: string; intro: string; services: Service[] }> = {
@@ -153,56 +182,66 @@ const creations: Creation[] = [
     body: 'The Prospera Labs AI Agent engine was built by me in Fall of 2024 to help me develop AI Agents. The engine is the core product offering of Prospera Labs. The low-code engine allows building all sorts of customized conversational agents.',
     cta: 'Try it out',
     href: 'https://prosperalabs.ai',
-    image: '/assets/creation-prospera-agent.webp'
+    image: '/assets/creation-prospera-agent.webp',
+    alt: 'Custom agent builder interface'
   },
   {
     title: 'Networking Bot',
-    body: 'The Networking Bot is a custom personal assistant chat-bot that I use to help me stay in touch with friends. It automatically calls and messages contacts I specify in order to schedule lunches and happy hours. It helps me to stay in touch with contacts and provides a cool demonstration of my bot technology.',
+    body: 'The Networking Bot is a custom personal assistant chat-bot that I use to help me stay in touch with friends. It automatically calls and messages contacts I specify in order to schedule lunches and happy hours. It helps me to stay in touch with contacts and provides a cool demonstration of my bot technology and how well it works. I may also be productizing it soon.',
     cta: 'Try it out',
     href: 'https://www.prosperalabs.ai',
-    image: '/assets/creation-networking-bot.png'
+    image: '/assets/creation-networking-bot.png',
+    alt: 'A screenshot of the networking bot talking to a contact'
   },
   {
     title: 'Articulon',
-    body: "Articulon is a simple tool I use for creating self-customizing content. By using AI, I combine both my unique human expression with personalization that tailors that content to the specific user.",
+    body: "Articulon is a simple tool I use for creating self-customizing content. By using AI, I combine both my unique human expression with personalization that tailors that content to the specific user. I use Articulon on my own blog, but if you're interested in using it as well, give me a shout.",
     cta: 'Read the Blog',
     href: 'https://articulon.bradleyarsenault.me',
-    image: '/assets/creation-articulon.png'
+    image: '/assets/creation-articulon.png',
+    alt: 'A screenshot of Articulon, the Self-Customizing Blog Software'
   },
   {
     title: 'FlowThought',
-    body: "FlowThought is a simple tool to combine ChatGPT with flow charts to make it easy to use AI in a professional setting. Don't get replaced with AI! Make it your employee with FlowThought!",
+    body: "FlowThought is a simple tool to combine ChatGPT (LLMs more generally) with flow charts to make it easy to use AI in a professional setting. Don't get replaced with AI! Make it your employee with FlowThought!",
     cta: 'Check it out',
     href: 'https://flowthought.prosperalab.ai',
-    image: '/assets/creation-flowthought.png'
+    image: '/assets/creation-flowthought.png',
+    alt: 'A screenshot of FlowThought - Automated Deep Analysis'
   },
   {
     title: 'PromptDesk',
-    body: 'Learn about engineering and product development using artificial intelligence on my podcast, The Prompt Desk! Justin Macorin and myself discuss all topics on Language Models and Artificial Intelligence.',
+    body: 'Learn about engineering and product development using artificial intelligence on my podcast, The Prompt Desk! Justin Macorin and myself discuss all topics on Language Models and Artificial Intelligence. Find it on Apple Podcasts, Spotify, PocketCasts, Google Podcasts, or wherever you find your podcasts today!',
     cta: 'Listen Online',
     href: 'https://promptdesk.ai',
-    image: '/assets/creation-promptdesk.png'
+    image: '/assets/creation-promptdesk.png',
+    alt: 'Logo for the Prompt Desk Podcast'
   },
   {
     title: 'Kwola',
-    body: 'Kwola is an open source tool that uses reinforcement learning to automatically learn how to use a web application and then find bugs in it, without any user input required.',
+    body: 'Kwola is an open source tool that uses reinforcement learning to automatically learn how to use a web application and then find bugs in it, without any user input required. Let it loose and come back in 72 hours for your list of bugs!',
     cta: 'Visit the Website',
     href: 'https://kwola.io',
-    image: '/assets/creation-kwola.png'
+    secondaryCta: 'View On Github',
+    secondaryHref: 'https://github.com/genixpro',
+    image: '/assets/creation-kwola.png',
+    alt: 'Graphs and heatmaps derived from Kwola'
   },
   {
     title: 'Swiftly AI',
-    body: 'Swiftly AI was an attempt to create a tool that could automate the complicated process of valuing commercial real estate by automating the same process that human commercial appraisers followed.',
+    body: 'Swiftly AI was an attempt to create a tool that could automate the complicated process of valuing commercial real estate. Swiftly AI took a new approach - instead of developing a model to predict valuations directly (which has been tried before and failed), instead Swiftly AI focused on automating the same process that human commercial appraisers followed, allowing it to produce accurate valuations even in with extreme data scarcity, along with all of the analysis and detail required by the law in its final report.',
     cta: 'View On Github',
     href: 'https://github.com/genixpro',
-    image: '/assets/creation-swiftly.png'
+    image: '/assets/creation-swiftly.png',
+    alt: 'A screenshot of SwiftlyAI'
   },
   {
     title: 'Hypermax',
-    body: 'Hypermax is an open source tool used to make hyperparameter optimization faster and easier. It evolved into a platform for exploring new algorithms for hyperparameter optimization, culminating in ATPE and ABH.',
+    body: 'Hypermax is an open source tool used to make hyperparameter optimization faster and easier. I created it to help me generate charts and graphs for algorithms I was optimizing. However, it evolved into a platform that allowed me to explore new algorithms for hyperparameter optimization, culminating in the creation of ATPE and ABH, two new techniques for bayesian optimization.',
     cta: 'View On Github',
     href: 'https://github.com/genixpro',
-    image: '/assets/creation-hypermax.png'
+    image: '/assets/creation-hypermax.png',
+    alt: 'A screenshot of Hypermax in operation'
   }
 ];
 
@@ -259,35 +298,35 @@ const portfolioImageFallback = '/assets/portfolio-01.png';
 const portfolioRibbon = '/assets/portfolio-ribbon-not-acquired.png';
 
 const portfolioRows = [
-  ['AI for Writing Children\'s Stories', 'Entertainment Tech', 'Startup', 'Dublin', '$10,000', '2024', '6 weeks', ['Generative AI', 'Content Generation']],
-  ['Prototype for Parenting Counselor & Therapist Bot', 'Consumer App', 'Startup', 'Tel Aviv', '$5,000', '2024', '5 weeks', ['Chatbot Technology', 'Generative AI']],
-  ['Insurance Data Update SMS Bot', 'Insurtech', 'Startup', 'Salt Lake City', '$15,000', '2024', '2 months', ['Chatbot Technology', 'Automation']],
-  ['Receptionist Bot for Booking Appointments over Phone Calls', 'Deep Tech', 'Startup', 'Tampa', '$20,000', '2024', '2 months', ['Voice AI', 'Chatbot Technology']],
-  ['Government Resume Converter', 'Recruiting', 'Small Business', 'Ottawa', '$15,000', '2024', '7 weeks', ['Document Processing', 'Generative AI']],
-  ['Self-Customizing Blog Platform using Generative AI', 'Marketing', 'Startup', 'Ottawa', '$15,000', '2023', '5 weeks', ['Generative AI', 'Content Generation']],
-  ['Analytical Software for Deep Analysis using Generative AI', 'Operations', 'Startup', 'Ottawa', '$60,000', '2023', '4 1/2 months', ['Data Analytics', 'Generative AI']],
-  ['Mobile App for AI-powered Home Inspections', 'Real Estate', 'Startup', 'Halifax', '$25,000', '2023', '2 months', ['Mobile App', 'Computer Vision']],
-  ['Automated Software Test Writing using Deep-Learning', 'Deep Tech', 'Startup', 'San Francisco', '$60,000', '2023', '5 months', ['Deep Learning', 'Software Testing']],
-  ['Banking Software for Entrepreneurs', 'Finance', 'Startup', 'San Francisco', '$60,000', '2022', '5 months', ['Fintech', 'User Interface Development']],
-  ['Banking Software for Common People', 'Finance', 'Medium Business', 'San Jose', '$120,000', '2021', '1 year', ['Fintech', 'API Development']],
-  ['Audio Processing Software for Call Centers', 'Customer Service', 'Scale Up', 'Waterloo', '$35,000', '2021', '3 months', ['Audio Processing', 'Natural Language Processing']],
-  ['Data Extraction for Receipts using Deep-Learning', 'Fintech', 'Medium Business', 'Toronto', '$100,000', '2020', '6 months', ['Data Extraction & Scraping', 'Deep Learning']],
-  ['AI Bug Hunting using Reinforcement Learning', 'Deep Tech', 'Startup', 'Toronto', '$150,000', '2020', '1 year', ['Reinforcement Learning', 'Software Testing']],
-  ['Machine Learning Models for Customer Attrition', 'Finance', 'Small Business', 'Toronto', '$50,000', '2019', '6 months', ['Data Analytics', 'Machine Learning']],
-  ['Chat-bot MVP for Apartment Owners', 'Real Estate', 'Startup', 'Toronto', '$25,000', '2019', '2 months', ['Chatbot Technology', 'Natural Language Processing']],
-  ['Commercial Real Estate Valuation using AI', 'Real Estate', 'Startup', 'Toronto', '$75,000', '2019', '6 months', ['Data Analytics', 'Machine Learning']],
-  ['Prototype Pill Identification and Verification using Deep Learning', 'Med Tech', 'Startup', 'Seattle', '$15,000', '2019', '6 weeks', ['Computer Vision', 'Deep Learning']],
-  ['Strategy Consulting for Call Centre Software Company', 'Customer Service', 'Medium Business', 'Toronto', '$8,000', '2018', '3 weeks', ['Strategy Consulting', 'Audio Processing']],
-  ['Machine Learning Models for Smart Speaker Prototype', 'Deep Tech', 'Startup', 'Toronto', '$15,000', '2018', '4 weeks', ['Audio Processing', 'Machine Learning']],
-  ['Airplane Failure Classification using Deep-Learning', 'Manufacturing', 'Large Corporation', 'Toronto', '$20,000', '2018', '2 months', ['Natural Language Processing', 'Deep Learning']],
-  ['Document processing for emails, PDFs and spreadsheets', 'Finance', 'Large Corporation', 'Toronto', '$140,000', '2018', '8 months', ['Document Processing', 'Data Extraction & Scraping']],
-  ['Disease detection on heart-beats using deep learning', 'Health', 'Startup', 'Toronto', '$25,000', '2018', '9 weeks', ['Health Technology', 'Deep Learning']],
-  ['Resume sorting and filtering using deep learning', 'Recruiting & HR Tech', 'Small Business', 'Toronto', '$70,000', '2017', '6 months', ['Natural Language Processing', 'Deep Learning']],
-  ['Chat-bot Integration for Calendar App', 'Consumer App', 'Startup', 'Toronto', '$20,000', '2017', '8 weeks', ['Chatbot Technology', 'Mobile App']],
-  ['Invoice data extraction using deep learning', 'Fintech', 'Scale Up', 'Toronto', '$25,000', '2017', '3 months', ['Natural Language Processing', 'Deep Learning']],
-  ['Automated Analysis of Agile User Stories for relevant Government Regulations', 'RegTech', 'Medium Business', 'Toronto', '$25,000', '2017', '3 months', ['Deep Learning', 'Natural Language Processing']],
-  ['Automated model building using deep learning', 'Tech', 'Startup', 'Toronto', '$80,000', '2016', '1 year', ['Deep Learning', 'API Development']],
-  ['Receipt Data Extraction using Deep Learning', 'Fintech', 'Startup', 'Toronto', '$130,000', '2015', '1.5 years', ['Data Extraction & Scraping', 'Deep Learning']]
+  ['AI for Writing Children\'s Stories', 'Entertainment Tech', 'Startup', 'Dublin', '$10, 000', '2024', '6 weeks', ['Generative AI', 'Natural Language Processing', 'Computer Vision']],
+  ['Prototype for Parenting Counselor & Therapist Bot', 'Consumer App', 'Startup', 'Tel Aviv', '$5, 000', '2024', '5 weeks', ['Generative AI', 'Chatbot Technology', 'API Development']],
+  ['Insurance Data Update SMS Bot', 'Insurtech', 'Startup', 'Salt Lake City', '$15, 000', '2024', '2 months', ['Generative AI', 'Natural Language Processing', 'API Development', 'Chatbot Technology', 'User Interface Development', 'Audio Processing']],
+  ['Receptionist Bot for Booking Appointments over Phone Calls', 'Deep Tech', 'Startup', 'Tampa', '$20, 000', '2024', '2 months', ['Generative AI', 'Natural Language Processing', 'API Development', 'Chatbot Technology', 'User Interface Development', 'Audio Processing']],
+  ['Government Resume Converter', 'Recruiting', 'Small Business', 'Ottawa', '$15, 000', '2024', '7 weeks', ['Natural Language Processing', 'API Development', 'Generative AI']],
+  ['Self-Customizing Blog Platform using Generative AI', 'Marketing', 'Startup', 'Ottawa', '$15, 000', '2023', '5 weeks', ['Generative AI', 'Natural Language Processing', 'User Interface Development']],
+  ['Analytical Software for Deep Analysis using Generative AI', 'Operations', 'Startup', 'Ottawa', '$60, 000', '2023', '4 1/2 months', ['Generative AI', 'Natural Language Processing', 'User Interface Development']],
+  ['Mobile App for AI-powered Home Inspections', 'Real Estate', 'Startup', 'Halifax', '$25, 000', '2023', '2 months', ['Mobile App', 'Computer Vision', 'User Interface Development']],
+  ['Automated Software Test Writing using Deep-Learning', 'Deep Tech', 'Startup', 'San Francisco', '$60, 000', '2023', '5 months', ['Generative AI', 'Deep Learning']],
+  ['Banking Software for Entrepreneurs', 'Finance', 'Startup', 'San Francisco', '$60, 000', '2022', '5 months', ['API Development', 'Mobile App', 'User Interface Development']],
+  ['Banking Software for Common People', 'Finance', 'Medium Business', 'San Jose', '$120, 000', '2021', '1 year', ['API Development', 'User Interface Development']],
+  ['Audio Processing Software for Call Centers', 'Customer Service', 'Scale Up', 'Waterloo', '$35, 000', '2021', '3 months', ['Audio Processing', 'Data Analytics', 'Natural Language Processing', 'User Interface Development']],
+  ['Data Extraction for Receipts using Deep-Learning', 'Fintech', 'Medium Business', 'Toronto', '$100, 000', '2020', '6 months', ['Fintech', 'Deep Learning', 'Computer Vision', 'Natural Language Processing', 'API Development']],
+  ['AI Bug Hunting using Reinforcement Learning', 'Deep Tech', 'Startup', 'Toronto', '$150, 000', '2020', '1 year', ['Reinforcement Learning', 'Deep Learning', 'Computer Vision', 'API Development', 'User Interface Development']],
+  ['Machine Learning Models for Customer Attrition', 'Finance', 'Small Business', 'Toronto', '$50, 000', '2019', '6 months', ['Machine Learning', 'Data Analytics', 'API Development', 'Deep Learning', 'AI Evangelism', 'Management Consulting']],
+  ['Chat-bot MVP for Apartment Owners', 'Real Estate', 'Startup', 'Toronto', '$25, 000', '2019', '2 months', ['Chatbot Technology', 'API Development', 'Natural Language Processing']],
+  ['Commercial Real Estate Valuation using AI', 'Real Estate', 'Startup', 'Toronto', '$75, 000', '2019', '6 months', ['Natural Language Processing', 'Computer Vision', 'Deep Learning', 'API Development', 'User Interface Development']],
+  ['Prototype Pill Identification and Verification using Deep Learning', 'Med Tech', 'Startup', 'Seattle', '$15, 000', '2019', '6 weeks', ['Deep Learning', 'Computer Vision']],
+  ['Strategy Consulting for Call Centre Software Company', 'Customer Service', 'Medium Business', 'Toronto', '$8, 000', '2018', '3 weeks', ['Strategy Consulting', 'Chatbot Technology', 'Management Consulting']],
+  ['Machine Learning Models for Smart Speaker Prototype', 'Deep Tech', 'Startup', 'Toronto', '$15, 000', '2018', '4 weeks', ['Machine Learning', 'Deep Learning', 'Chatbot Technology', 'Natural Language Processing', 'Audio Processing']],
+  ['Airplane Failure Classification using Deep-Learning', 'Manufacturing', 'Large Corporation', 'Toronto', '$20, 000', '2018', '2 months', ['Natural Language Processing', 'Deep Learning']],
+  ['Document processing for emails, PDFs and spreadsheets', 'Finance', 'Large Corporation', 'Toronto', '$140, 000', '2018', '8 months', ['Deep Learning', 'Natural Language Processing', 'Data Extraction & Scraping']],
+  ['Disease detection on heart-beats using deep learning', 'Health', 'Startup', 'Toronto', '$25, 000', '2018', '9 weeks', ['Health Technology', 'Deep Learning', 'Data Analytics']],
+  ['Resume sorting and filtering using deep learning', 'Recruiting & HR Tech', 'Small Business', 'Toronto', '$70, 000', '2017', '6 months', ['API Development', 'Natural Language Processing', 'Data Extraction & Scraping', 'Deep Learning', 'User Interface Development', 'Data Analytics']],
+  ['Chat-bot Integration for Calendar App', 'Consumer App', 'Startup', 'Toronto', '$20, 000', '2017', '8 weeks', ['Chatbot Technology', 'Natural Language Processing', 'Mobile App']],
+  ['Invoice data extraction using deep learning', 'Fintech', 'Scale Up', 'Toronto', '$25, 000', '2017', '3 months', ['Fintech', 'Natural Language Processing', 'Deep Learning']],
+  ['Automated Analysis of Agile User Stories for relevant Government Regulations', 'RegTech', 'Medium Business', 'Toronto', '$25, 000', '2017', '3 months', ['Deep Learning', 'Natural Language Processing']],
+  ['Automated model building using deep learning', 'Tech', 'Startup', 'Toronto', '$80, 000', '2016', '1 year', ['Deep Learning', 'API Development', 'User Interface Development']],
+  ['Receipt Data Extraction using Deep Learning', 'Fintech', 'Startup', 'Toronto', '$130, 000', '2015', '1.5 years', ['Deep Learning', 'Fintech', 'Natural Language Processing', 'API Development', 'User Interface Development']]
 ] satisfies [string, string, string, string, string, string, string, string[]][];
 
 const portfolio: PortfolioProject[] = portfolioRows.map(
@@ -377,6 +416,7 @@ const simplePages: Record<string, { title: string; intro: string; cta?: string; 
 export function getStaticPaths() {
   const paths = [
     'portfolio',
+    'case-studies',
     'mycreations',
     'presentations',
     'contact-me',
@@ -409,7 +449,7 @@ const pageTitle =
   service?.title ??
   legalPage?.title ??
   simple?.title ??
-  (slug === 'portfolio'
+  (slug === 'portfolio' || slug === 'case-studies'
     ? 'Portfolio'
     : slug === 'mycreations'
       ? 'My Creations'
@@ -424,10 +464,10 @@ const gensquaredImage = '/assets/case-study-gensquared-bombardier.png';
 
 <PageLayout title={`${pageTitle} | Bradley Arsenault`}>
   <main class={pageClass}>
-    {(slug === 'portfolio' || slug === 'presentations' || slug === 'contact-me' || legalPage || isSimpleHeroPage) && (
+    {((slug === 'portfolio' || slug === 'case-studies') || slug === 'presentations' || slug === 'contact-me' || legalPage || isSimpleHeroPage) && (
     <section class={`sub-hero sub-hero-${slug.replace(/\//g, '-')}`}>
       <div class="container">
-        {slug === 'portfolio' && (
+        {(slug === 'portfolio' || slug === 'case-studies') && (
           <>
             <h1>Portfolio</h1>
             <p>Engineering Cutting Edge AI Solutions for 9+ years</p>
@@ -475,7 +515,7 @@ const gensquaredImage = '/assets/case-study-gensquared-bombardier.png';
       </section>
     )}
 
-    {slug === 'portfolio' && (
+    {(slug === 'portfolio' || slug === 'case-studies') && (
       <section class="sub-section">
         <div class="container portfolio-grid">
           {portfolio.map(({ title, industry, size, location, cost, year, time, image, ribbon, tags }, index) => (
@@ -491,12 +531,12 @@ const gensquaredImage = '/assets/case-study-gensquared-bombardier.png';
                 <div><dt>Location:</dt><dd>{location}</dd></div>
               </dl>
               <div class="portfolio-tags" aria-label="Project tags">
-                {tags.map((tag) => <span>{tag}</span>)}
+                {tags.map((tag) => <span style={`--tag-bg: ${portfolioTagColors[tag] ?? '#117923'}`}>{tag}</span>)}
               </div>
               <dl class="portfolio-metrics">
                 <div><dt>Cost:</dt><dd>{cost}</dd></div>
                 <div><dt>Year:</dt><dd>{year}</dd></div>
-                <div><dt>Time:</dt><dd>{time}</dd></div>
+                <div><dt>Project Time</dt><dd>{time}</dd></div>
               </dl>
             </article>
           ))}
@@ -508,14 +548,17 @@ const gensquaredImage = '/assets/case-study-gensquared-bombardier.png';
       <section class="creations-showcase">
         <div class="container creation-list">
           <h1>My Creations</h1>
-          {creations.map(({ title, body, cta, href, image }) => (
+          {creations.map(({ title, body, cta, href, secondaryCta, secondaryHref, image, alt }) => (
             <article class="creation-card">
               <div class="creation-copy">
                 <h2>{title}</h2>
                 <p>{body}</p>
-                <a class="button button-secondary" href={href}>{cta}</a>
+                <div class="creation-actions">
+                  <a class="button button-secondary" href={href}>{cta}</a>
+                  {secondaryCta && secondaryHref && <a class="button button-secondary" href={secondaryHref}>{secondaryCta}</a>}
+                </div>
               </div>
-              <img src={image} alt="" loading="lazy" />
+              <img src={image} alt={alt} loading="eager" decoding="async" />
             </article>
           ))}
         </div>
@@ -551,15 +594,15 @@ const gensquaredImage = '/assets/case-study-gensquared-bombardier.png';
           </div>
           <div class="contact-main">
             <p>Feel free to reach out using any communication medium! For best results, book a meeting directly with me using my meeting link: <a href="https://calendly.com/bradleyarsenault">https://calendly.com/bradleyarsenault</a></p>
-          <form class="contact-form">
+          <form class="contact-form" onsubmit="event.preventDefault()">
             <div class="form-row">
-              <label>First Name<input /></label>
-              <label>Last Name<input /></label>
+              <label>First Name<input name="firstName" required /></label>
+              <label>Last Name<input name="lastName" required /></label>
             </div>
-            <label>Email *<input type="email" /></label>
-            <label>Phone<input placeholder="Phone" /></label>
-            <label>Message<textarea></textarea></label>
-            <button class="button button-primary" type="button">Send</button>
+            <label>Email *<input type="email" name="email" required /></label>
+            <label>Phone<input name="phone" placeholder="Phone" /></label>
+            <label>Message<textarea name="message" required></textarea></label>
+            <button class="button button-primary" type="submit">Send</button>
           </form>
           </div>
         </div>

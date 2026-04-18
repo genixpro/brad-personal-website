@@ -1,21 +1,12 @@
 ---
+import SiteHeader from '../components/SiteHeader.astro';
 import '../styles/global.css';
-
-const navLinks = [
-  ['Home', '#top'],
-  ['Portfolio', '/portfolio'],
-  ['My Creations', '/mycreations'],
-  ['Prospera Labs', 'https://www.prosperalabs.ai'],
-  ['Podcast', 'https://promptdesk.ai/podcast'],
-  ['Blog', 'https://articulon.bradleyarsenault.me'],
-  ['More', '#footer']
-];
 
 const stats = [
   ['5', "acquisitions of companies I've built technology for"],
   ['20+', "successful products, prototypes and models I've built for companies"],
-  ['87', 'proposals, designs and ideations created with visionary entrepreneurs'],
-  ['∞', 'the number of AI products I want to launch before I die']
+  ['∞', 'the number of AI products I want to launch before I die'],
+  ['87', 'proposals, designs and ideations created with visionary entrepreneurs']
 ];
 
 const companies = [
@@ -39,29 +30,41 @@ const consultingBullets = [
   'Establish the best strategy for you to not get replaced with AI',
   'Make your dream come true'
 ];
+
+const pageTitle = 'Bradley Arsenault | Freelance AI Engineer | Home';
+const pageDescription =
+  'Bradley (Brad) Arsenault is a reliable & talented AI consultant and freelance AI product engineer with a proven track record of building cutting-edge AI products from the ground up.';
+const canonicalUrl = 'https://www.bradleyarsenault.me';
+const imageUrl =
+  'https://static.wixstatic.com/media/387c90_dd3cb4178c9d4644a817f8a34aaae862%7Emv2.png/v1/fit/w_2500,h_1330,al_c/387c90_dd3cb4178c9d4644a817f8a34aaae862%7Emv2.png';
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Bradley Arsenault, freelance AI engineer and AI product consultant." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bradley Arsenault | Freelance AI Engineer</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="icon" sizes="192x192" href="/assets/site-icon.png" type="image/png" />
+    <link rel="shortcut icon" href="/assets/site-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/site-icon.png" type="image/png" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="2500" />
+    <meta property="og:image:height" content="1330" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Bradley Arsenault AI" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={imageUrl} />
+    <title>{pageTitle}</title>
   </head>
   <body id="top">
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Bradley Arsenault home">
-        <span>Bradley</span>
-        <span>Arsenault</span>
-      </a>
-      <nav class="primary-nav" aria-label="Primary navigation">
-        {navLinks.map(([label, href]) => (
-          <a href={href}>{label}</a>
-        ))}
-      </nav>
-      <a class="header-cta" href="https://calendly.com/bradleyarsenault">Book a Call</a>
-    </header>
+    <SiteHeader homeHref="#top" />
 
     <main>
       <section class="hero section-dark">

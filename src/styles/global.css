@@ -1233,7 +1233,7 @@ figcaption {
 
 .subpage-portfolio .sub-section {
   padding: 68px 0 90px;
-  background: var(--white);
+  background: #160f36;
 }
 
 .subpage-presentations .sub-section {
@@ -1259,7 +1259,7 @@ figcaption {
   width: min(1540px, calc(100% - 380px));
   grid-template-columns: repeat(auto-fit, minmax(0, 328px));
   justify-content: center;
-  gap: 60px;
+  gap: 58px 60px;
 }
 
 .portfolio-card,
@@ -1277,7 +1277,7 @@ figcaption {
   display: grid;
   align-content: start;
   width: min(328px, 100%);
-  min-height: 650px;
+  min-height: 540px;
   padding: 0;
   overflow: hidden;
   border-color: #e8e6e6;
@@ -1363,8 +1363,8 @@ figcaption {
   justify-content: center;
   align-content: start;
   gap: 8px;
-  min-height: 128px;
-  margin: 18px 6px 0;
+  min-height: 112px;
+  margin: 18px 6px 10px;
 }
 
 .portfolio-tags span {
@@ -1373,27 +1373,19 @@ figcaption {
   min-height: 22px;
   padding: 5px 10px;
   color: var(--white);
-  background: #117923;
+  background: var(--tag-bg, #117923);
   border-radius: 25px;
   font-size: 11px;
   line-height: 1;
   text-align: center;
 }
 
-.portfolio-tags span:nth-child(2n) {
-  background: #9012c2;
-}
-
-.portfolio-tags span:nth-child(3n) {
-  background: #114279;
-}
-
 .portfolio-metrics {
   display: grid;
-  grid-template-columns: 94px 73px 83px;
+  grid-template-columns: 78px 62px 102px;
   gap: 10px;
   justify-content: center;
-  margin: 0 0 18px;
+  margin: 0 0 22px;
 }
 
 .portfolio-metrics div {
@@ -1415,7 +1407,7 @@ figcaption {
 }
 
 .creation-list {
-  gap: 70px;
+  gap: 64px;
 }
 
 .service-card p,
@@ -1427,10 +1419,14 @@ figcaption {
 }
 
 .creation-list > h1 {
-  margin: 0 0 780px;
+  margin: 0;
   color: var(--white);
   font-size: clamp(56px, 6vw, 78px);
   text-align: left;
+}
+
+.creation-list > h1 + .creation-card {
+  margin-top: -34px;
 }
 
 .creation-card {
@@ -1444,16 +1440,22 @@ figcaption {
 
 .creation-copy h2 {
   margin-bottom: 34px;
-  color: rgba(255, 255, 255, 0.52);
+  color: var(--white);
   font-size: clamp(30px, 3vw, 40px);
 }
 
 .creation-copy p {
   max-width: 480px;
   margin-bottom: 54px;
-  color: rgba(255, 255, 255, 0.52);
+  color: rgba(255, 255, 255, 0.74);
   font-size: clamp(21px, 2.1vw, 27px);
   line-height: 1.18;
+}
+
+.creation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .creation-card .button {
@@ -1465,9 +1467,10 @@ figcaption {
 
 .creation-card img {
   width: 100%;
+  height: auto;
   max-height: 426px;
   object-fit: cover;
-  opacity: 0.42;
+  opacity: 1;
 }
 
 .service-card {
@@ -2046,8 +2049,12 @@ figcaption {
   }
 
   .creation-list > h1 {
-    margin-bottom: 360px;
+    margin-bottom: 0;
     font-size: 46px;
+  }
+
+  .creation-list > h1 + .creation-card {
+    margin-top: -18px;
   }
 
   .creation-copy h2 {
