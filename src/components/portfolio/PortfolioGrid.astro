@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import ImageLightbox from '../common/ImageLightbox.astro';
 import PortfolioCard from './PortfolioCard.astro';
 
 export interface Props {
@@ -23,6 +24,7 @@ const projects = [...entries].sort((left, right) => left.data.order - right.data
         year={data.year}
         time={data.time}
         image={data.image}
+        fullImage={data.fullImage}
         ribbon={data.ribbon}
         tags={data.tags}
         tagColors={tagColors}
@@ -31,4 +33,5 @@ const projects = [...entries].sort((left, right) => left.data.order - right.data
       />
     ))}
   </div>
+  <ImageLightbox />
 </section>

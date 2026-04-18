@@ -4,6 +4,7 @@ body: "FlowThought is a simple tool to combine ChatGPT (LLMs more generally) wit
 cta: "Check it out"
 href: "https://flowthought.prosperalab.ai"
 image: "/assets/creation-flowthought.png"
+fullImage: "/assets/full-size/creations/flowthought.png"
 alt: "A screenshot of FlowThought - Automated Deep Analysis"
 order: 4
 ---

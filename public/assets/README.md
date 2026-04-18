@@ -1,6 +1,8 @@
-Visual assets harvested from the live Bradley Arsenault site on 2026-04-18.
+Visual assets localized from the previous Bradley Arsenault site on 2026-04-18.
 
 Runtime pages should reference the localized files in this directory rather than external CDN transforms.
+
+Brad confirmed the retained visual assets were created by him. The one unauthenticated asset from the migration audit, `workshop-grid.jpg`, was removed from runtime usage and deleted.
 
 Second-pass localized assets include the contact portrait, GenSquared case-study image, My Creations screenshots, and the presentation thumbnail used by the Astro rebuild.
 

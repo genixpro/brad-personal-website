@@ -7,6 +7,7 @@ cost: "$25, 000"
 year: "2018"
 time: "9 weeks"
 image: "/assets/portfolio-23.png"
+fullImage: "/assets/full-size/portfolio/portfolio-23.png"
 ribbon: "/assets/portfolio-ribbon-not-acquired.png"
 tags: ["Health Technology", "Deep Learning", "Data Analytics"]
 order: 23

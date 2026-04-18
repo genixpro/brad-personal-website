@@ -6,6 +6,7 @@ href: "https://kwola.io"
 secondaryCta: "View On Github"
 secondaryHref: "https://github.com/genixpro"
 image: "/assets/creation-kwola.png"
+fullImage: "/assets/full-size/creations/kwola.png"
 alt: "Graphs and heatmaps derived from Kwola"
 order: 6
 ---

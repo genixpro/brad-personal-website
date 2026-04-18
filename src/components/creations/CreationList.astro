@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import ImageLightbox from '../common/ImageLightbox.astro';
 import CreationCard from './CreationCard.astro';
 
 export interface Props {
@@ -22,8 +23,10 @@ const creations = [...entries].sort((left, right) => left.data.order - right.dat
         secondaryCta={data.secondaryCta}
         secondaryHref={data.secondaryHref}
         image={data.image}
+        fullImage={data.fullImage}
         alt={data.alt}
       />
     ))}
   </div>
+  <ImageLightbox />
 </section>

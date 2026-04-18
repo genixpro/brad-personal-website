@@ -4,6 +4,7 @@ body: "The Networking Bot is a custom personal assistant chat-bot that I use to 
 cta: "Try it out"
 href: "https://www.prosperalabs.ai"
 image: "/assets/creation-networking-bot.png"
+fullImage: "/assets/full-size/creations/networking-bot.png"
 alt: "A screenshot of the networking bot talking to a contact"
 order: 2
 ---

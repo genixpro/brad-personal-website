@@ -4,6 +4,7 @@ body: "Articulon is a simple tool I use for creating self-customizing content. B
 cta: "Read the Blog"
 href: "https://articulon.bradleyarsenault.me"
 image: "/assets/creation-articulon.png"
+fullImage: "/assets/full-size/creations/articulon.png"
 alt: "A screenshot of Articulon, the Self-Customizing Blog Software"
 order: 3
 ---

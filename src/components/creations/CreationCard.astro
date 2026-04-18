@@ -7,6 +7,7 @@ export interface Creation {
   secondaryCta?: string;
   secondaryHref?: string;
   image: string;
+  fullImage?: string;
   alt: string;
 }
 
@@ -22,6 +23,7 @@ const {
   secondaryCta,
   secondaryHref,
   image,
+  fullImage = image,
   alt,
   imageLoading = 'eager'
 }: Props = Astro.props;
@@ -36,5 +38,7 @@ const {
       {secondaryCta && secondaryHref && <a class="button button-secondary" href={secondaryHref}>{secondaryCta}</a>}
     </div>
   </div>
-  <img src={image} alt={alt} loading={imageLoading} decoding="async" />
+  <button class="image-lightbox-trigger creation-image-button" type="button" data-lightbox-src={fullImage} data-lightbox-title={title}>
+    <img src={image} alt={alt} loading={imageLoading} decoding="async" />
+  </button>
 </article>

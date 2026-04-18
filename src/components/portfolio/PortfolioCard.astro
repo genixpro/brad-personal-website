@@ -9,6 +9,7 @@ export interface PortfolioProject {
   year: string;
   time: string;
   image: string;
+  fullImage?: string;
   ribbon?: string;
   tags: string[];
 }
@@ -29,6 +30,7 @@ const {
   year,
   time,
   image,
+  fullImage = image,
   ribbon,
   tags,
   imageLoading = 'lazy',
@@ -44,7 +46,9 @@ const normalizedSize = companySize ?? size;
     <h2>{title}</h2>
     {ribbon && <img class="portfolio-ribbon" src={ribbon} alt="" loading={ribbonLoading} />}
   </div>
-  <img class="portfolio-image" src={image} alt={title} loading={imageLoading} />
+  <button class="image-lightbox-trigger portfolio-image-button" type="button" data-lightbox-src={fullImage} data-lightbox-title={title}>
+    <img class="portfolio-image" src={image} alt={title} loading={imageLoading} />
+  </button>
   <dl class="portfolio-details">
     <div><dt>Industry:</dt><dd>{industry}</dd></div>
     {normalizedSize && <div><dt>Company Size:</dt><dd>{normalizedSize}</dd></div>}

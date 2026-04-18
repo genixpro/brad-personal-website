@@ -18,6 +18,7 @@ const portfolio = defineCollection({
     year: z.string(),
     time: z.string(),
     image: z.string(),
+    fullImage: z.string().optional(),
     ribbon: z.string(),
     tags: z.array(z.string()),
     order: z.number()
@@ -44,6 +45,7 @@ const creations = defineCollection({
     secondaryCta: z.string().optional(),
     secondaryHref: z.string().optional(),
     image: z.string(),
+    fullImage: z.string().optional(),
     alt: z.string(),
     order: z.number()
   })

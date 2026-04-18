@@ -4,6 +4,7 @@ body: "Swiftly AI was an attempt to create a tool that could automate the compli
 cta: "View On Github"
 href: "https://github.com/genixpro"
 image: "/assets/creation-swiftly.png"
+fullImage: "/assets/full-size/creations/swiftly-ai.png"
 alt: "A screenshot of SwiftlyAI"
 order: 7
 ---

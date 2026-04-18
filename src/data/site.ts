@@ -15,8 +15,9 @@ export const site = {
   description:
     'Bradley (Brad) Arsenault is a reliable & talented AI consultant and freelance AI product engineer with a proven track record of building cutting-edge AI products from the ground up.',
   canonicalUrl: 'https://www.bradleyarsenault.me',
-  imageUrl:
-    'https://static.wixstatic.com/media/387c90_dd3cb4178c9d4644a817f8a34aaae862%7Emv2.png/v1/fit/w_2500,h_1330,al_c/387c90_dd3cb4178c9d4644a817f8a34aaae862%7Emv2.png',
+  imageUrl: '/assets/site-share-image.png',
+  imageWidth: '1024',
+  imageHeight: '1024',
   icon: assetPaths.siteIcon,
   brandLogo: assetPaths.brandLogo,
   copyright: '©2023 by Bradley Arsenault'

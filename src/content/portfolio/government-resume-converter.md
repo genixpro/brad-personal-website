@@ -7,6 +7,7 @@ cost: "$15, 000"
 year: "2024"
 time: "7 weeks"
 image: "/assets/portfolio-05.webp"
+fullImage: "/assets/full-size/portfolio/portfolio-05.webp"
 ribbon: "/assets/portfolio-ribbon-not-acquired.png"
 tags: ["Natural Language Processing", "API Development", "Generative AI"]
 order: 5

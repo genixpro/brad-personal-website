@@ -7,6 +7,7 @@ cost: "$10, 000"
 year: "2024"
 time: "6 weeks"
 image: "/assets/portfolio-01.png"
+fullImage: "/assets/full-size/portfolio/portfolio-01.png"
 ribbon: "/assets/portfolio-ribbon-not-acquired.png"
 tags: ["Generative AI", "Natural Language Processing", "Computer Vision"]
 order: 1

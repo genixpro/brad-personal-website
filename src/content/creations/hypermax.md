@@ -4,6 +4,7 @@ body: "Hypermax is an open source tool used to make hyperparameter optimization 
 cta: "View On Github"
 href: "https://github.com/genixpro"
 image: "/assets/creation-hypermax.png"
+fullImage: "/assets/full-size/creations/hypermax.png"
 alt: "A screenshot of Hypermax in operation"
 order: 8
 ---

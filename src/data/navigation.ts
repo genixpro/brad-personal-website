@@ -12,8 +12,6 @@ export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'My Creations', href: '/mycreations' },
-  { label: 'Prospera Labs', href: 'https://www.prosperalabs.ai' },
-  { label: 'Podcast', href: 'https://promptdesk.ai/podcast' },
   { label: 'Blog', href: 'https://articulon.bradleyarsenault.me' }
 ];
 

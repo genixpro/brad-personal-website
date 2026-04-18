@@ -4,6 +4,7 @@ body: "Learn about engineering and product development using artificial intellig
 cta: "Listen Online"
 href: "https://promptdesk.ai"
 image: "/assets/creation-promptdesk.png"
+fullImage: "/assets/full-size/creations/promptdesk.png"
 alt: "Logo for the Prompt Desk Podcast"
 order: 5
 ---

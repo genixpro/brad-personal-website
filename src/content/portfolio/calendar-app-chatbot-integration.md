@@ -7,6 +7,7 @@ cost: "$20, 000"
 year: "2017"
 time: "8 weeks"
 image: "/assets/portfolio-25.png"
+fullImage: "/assets/full-size/portfolio/portfolio-25.png"
 ribbon: "/assets/portfolio-ribbon-not-acquired.png"
 tags: ["Chatbot Technology", "Natural Language Processing", "Mobile App"]
 order: 25
