@@ -1,0 +1,45 @@
+---
+export interface Presentation {
+  title: string;
+  image: string;
+  href?: string;
+  date?: string;
+}
+
+export interface Props extends Presentation {
+  imageAlt?: string;
+  imageLoading?: 'eager' | 'lazy';
+}
+
+const { title, image, href, date, imageAlt = '', imageLoading = 'lazy' }: Props = Astro.props;
+const isExternalLink = href?.startsWith('http');
+---
+
+<article class="presentation-card">
+  {
+    href ? (
+      <a
+        class="presentation-card-link"
+        href={href}
+        target={isExternalLink ? '_blank' : undefined}
+        rel={isExternalLink ? 'noreferrer' : undefined}
+      >
+        <div class="video-placeholder">
+          <img src={image} alt={imageAlt} loading={imageLoading} />
+          <span aria-hidden="true"></span>
+        </div>
+        <h2>{title}</h2>
+        {date && <time datetime={date}>{date}</time>}
+      </a>
+    ) : (
+      <div class="presentation-card-content">
+        <div class="video-placeholder">
+          <img src={image} alt={imageAlt} loading={imageLoading} />
+          <span aria-hidden="true"></span>
+        </div>
+        <h2>{title}</h2>
+        {date && <time datetime={date}>{date}</time>}
+      </div>
+    )
+  }
+</article>

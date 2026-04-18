@@ -1,0 +1,12 @@
+---
+export interface Props {
+  href: string;
+  label: string;
+  variant?: 'primary' | 'secondary' | 'blue' | 'maroon';
+  className?: string;
+}
+
+const { href, label, variant = 'primary', className = '' }: Props = Astro.props;
+---
+
+<a class={`button button-${variant} ${className}`.trim()} href={href}>{label}</a>

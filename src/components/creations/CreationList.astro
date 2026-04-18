@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import CreationCard from './CreationCard.astro';
+
+export interface Props {
+  entries: CollectionEntry<'creations'>[];
+}
+
+const { entries }: Props = Astro.props;
+const creations = [...entries].sort((left, right) => left.data.order - right.data.order);
+---
+
+<section class="creations-showcase">
+  <div class="container creation-list">
+    <h1>My Creations</h1>
+    {creations.map(({ data }) => (
+      <CreationCard
+        title={data.title}
+        body={data.body}
+        cta={data.cta}
+        href={data.href}
+        secondaryCta={data.secondaryCta}
+        secondaryHref={data.secondaryHref}
+        image={data.image}
+        alt={data.alt}
+      />
+    ))}
+  </div>
+</section>

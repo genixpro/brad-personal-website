@@ -1,0 +1,25 @@
+---
+export type SubHeroCta = {
+  label: string;
+  href: string;
+};
+
+export interface Props {
+  title: string;
+  intro?: string;
+  cta?: SubHeroCta;
+  variant?: string;
+}
+
+const { title, intro, cta, variant }: Props = Astro.props;
+const variantClass = variant ? ` sub-hero-${variant.replace(/\//g, '-')}` : '';
+---
+
+<section class={`sub-hero${variantClass}`}>
+  <div class="container">
+    <h1>{title}</h1>
+    {intro && <p>{intro}</p>}
+    {cta && <a class="button button-primary" href={cta.href}>{cta.label}</a>}
+    <slot />
+  </div>
+</section>

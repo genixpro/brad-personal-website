@@ -1,0 +1,32 @@
+---
+export interface Service {
+  number: string;
+  title: string;
+  body: string;
+  price?: string;
+}
+
+export interface Props extends Service {
+  contactHref?: string;
+  contactLabel?: string;
+}
+
+const {
+  number,
+  title,
+  body,
+  price,
+  contactHref = '/contact-me',
+  contactLabel = 'Contact Me!'
+}: Props = Astro.props;
+---
+
+<article class="service-row">
+  <span>{number}</span>
+  <div>
+    <h2>{title}</h2>
+    <p>{body}</p>
+    {price && <strong>{price}</strong>}
+    <a class="button button-blue" href={contactHref}>{contactLabel}</a>
+  </div>
+</article>

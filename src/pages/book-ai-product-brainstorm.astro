@@ -1,0 +1,13 @@
+---
+import SubHero from '../components/common/SubHero.astro';
+import { simplePages } from '../data/simplePages';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const page = simplePages['book-ai-product-brainstorm'];
+---
+
+<PageLayout>
+  <main class="subpage subpage-book-ai-product-brainstorm">
+    <SubHero title={page.title} intro={page.intro} cta={{ label: page.cta, href: page.href }} variant="book-ai-product-brainstorm" />
+  </main>
+</PageLayout>

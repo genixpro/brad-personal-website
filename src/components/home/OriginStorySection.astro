@@ -1,0 +1,18 @@
+---
+import { originStory } from '../../data/home';
+---
+
+<section class="origin section-light">
+  <div class="container origin-inner">
+    <h2>{originStory.title}</h2>
+    <div class="origin-grid">
+      <div class="story-copy">
+        {originStory.paragraphs.map((paragraph, index) => <p class:list={{ lead: index === originStory.paragraphs.length - 1 }}>{paragraph}</p>)}
+      </div>
+      <figure class="portrait">
+        <img src={originStory.image} alt={originStory.imageAlt} />
+        <figcaption>{originStory.caption}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

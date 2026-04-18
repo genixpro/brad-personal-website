@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PortfolioCard from './PortfolioCard.astro';
+
+export interface Props {
+  entries: CollectionEntry<'portfolio'>[];
+  tagColors: Record<string, string>;
+}
+
+const { entries, tagColors }: Props = Astro.props;
+const projects = [...entries].sort((left, right) => left.data.order - right.data.order);
+---
+
+<section class="sub-section">
+  <div class="container portfolio-grid">
+    {projects.map(({ data }, index) => (
+      <PortfolioCard
+        title={data.title}
+        industry={data.industry}
+        companySize={data.companySize}
+        location={data.location}
+        cost={data.cost}
+        year={data.year}
+        time={data.time}
+        image={data.image}
+        ribbon={data.ribbon}
+        tags={data.tags}
+        tagColors={tagColors}
+        imageLoading={index < 6 ? 'eager' : 'lazy'}
+        ribbonLoading={index < 6 ? 'eager' : 'lazy'}
+      />
+    ))}
+  </div>
+</section>

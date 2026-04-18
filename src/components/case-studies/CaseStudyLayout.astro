@@ -1,0 +1,41 @@
+---
+export interface Props {
+  title: string;
+  backHref?: string;
+  backLabel?: string;
+  navLabel?: string;
+  image?: string;
+  imageAlt?: string;
+  lede?: string;
+}
+
+const {
+  title,
+  backHref = '/portfolio',
+  backLabel = '< Back',
+  navLabel = title,
+  image,
+  imageAlt = '',
+  lede
+}: Props = Astro.props;
+---
+
+<section class="case-study-shell">
+  <div class="case-study-wrap">
+    <aside class="case-study-nav">
+      <a href={backHref}>{backLabel}</a>
+      <div>{navLabel}</div>
+    </aside>
+    <article class="case-study-card">
+      <h1>{title}</h1>
+      {(image || lede || Astro.slots.has('lede')) && (
+        <div class="case-study-lede">
+          {image && <img src={image} alt={imageAlt} />}
+          {lede && <p>{lede}</p>}
+          <slot name="lede" />
+        </div>
+      )}
+      <slot />
+    </article>
+  </div>
+</section>

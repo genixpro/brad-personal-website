@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import SubHero from '../components/common/SubHero.astro';
+import PresentationCard from '../components/presentations/PresentationCard.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const presentationEntries = await getCollection('presentations');
+const presentations = [...presentationEntries].sort((left, right) => left.data.order - right.data.order);
+---
+
+<PageLayout>
+  <main class="subpage subpage-presentations">
+    <SubHero title="Presentations" variant="presentations" />
+    <section class="sub-section">
+      <div class="container presentation-grid">
+        {presentations.map(({ data }) => (
+          <PresentationCard title={data.title} image={data.image} href={data.href} date={data.date} />
+        ))}
+      </div>
+    </section>
+  </main>
+</PageLayout>

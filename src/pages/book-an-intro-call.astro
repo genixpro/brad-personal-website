@@ -1,0 +1,13 @@
+---
+import SubHero from '../components/common/SubHero.astro';
+import { simplePages } from '../data/simplePages';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const page = simplePages['book-an-intro-call'];
+---
+
+<PageLayout>
+  <main class="subpage subpage-book-an-intro-call">
+    <SubHero title={page.title} intro={page.intro} cta={{ label: page.cta, href: page.href }} variant="book-an-intro-call" />
+  </main>
+</PageLayout>

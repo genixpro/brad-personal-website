@@ -1,0 +1,17 @@
+---
+export interface Props {
+  sourceLabel: string;
+  resultLabel: string;
+  source: string;
+  result: string;
+}
+
+const { sourceLabel, resultLabel, source, result }: Props = Astro.props;
+---
+
+<div class="failure-diagram">
+  <em>{sourceLabel}</em>
+  <em>{resultLabel}</em>
+  <span>{source}</span>
+  <strong>{result}</strong>
+</div>

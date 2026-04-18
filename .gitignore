@@ -5,3 +5,4 @@ dist/
 *.log
 .DS_Store
 bradleyarsenault-fullpage.png
+docs/astro-codebase-structure-plan.md

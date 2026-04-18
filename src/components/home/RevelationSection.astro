@@ -1,0 +1,12 @@
+---
+import { revelation } from '../../data/home';
+---
+
+<section class="revelation section-dark">
+  <div class="container revelation-inner">
+    <div>
+      <h2>{revelation.title}</h2>
+      {revelation.paragraphs.map((paragraph, index) => <p class:list={{ lead: index === 0 }}>{paragraph}</p>)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import AboutServices from '../components/services/AboutServices.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const serviceEntries = await getCollection('services');
+const services = [...serviceEntries].sort((left, right) => left.data.order - right.data.order);
+---
+
+<PageLayout>
+  <main class="subpage subpage-about">
+    <AboutServices services={services} />
+  </main>
+</PageLayout>

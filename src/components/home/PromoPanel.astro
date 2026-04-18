@@ -1,0 +1,33 @@
+---
+import { promos } from '../../data/home';
+---
+
+<section class="promos section-white">
+  <article class="promo promo-owners">
+    <div class="container promo-inner">
+      <div class="promo-card">
+        <h2>{promos.aiOwnersClub.title}</h2>
+        <div class="owners-card-grid">
+          <img src={promos.aiOwnersClub.image} alt={promos.aiOwnersClub.alt} />
+          <div>
+            <p>{promos.aiOwnersClub.copy}</p>
+            <a class="button button-primary" href={promos.aiOwnersClub.href}>{promos.aiOwnersClub.cta}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="promo prospera">
+    <div class="container promo-inner promo-reverse">
+      <div class="promo-card prospera-card">
+        <div>
+          <h2>{promos.prospera.title}</h2>
+          <p>{promos.prospera.copy}</p>
+          <a class="button button-secondary dark-text" href={promos.prospera.href}>{promos.prospera.cta}</a>
+        </div>
+        <img src={promos.prospera.image} alt={promos.prospera.alt} loading="lazy" />
+      </div>
+    </div>
+  </article>
+</section>

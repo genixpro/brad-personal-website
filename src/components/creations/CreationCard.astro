@@ -1,0 +1,40 @@
+---
+export interface Creation {
+  title: string;
+  body: string;
+  cta: string;
+  href: string;
+  secondaryCta?: string;
+  secondaryHref?: string;
+  image: string;
+  alt: string;
+}
+
+export interface Props extends Creation {
+  imageLoading?: 'eager' | 'lazy';
+}
+
+const {
+  title,
+  body,
+  cta,
+  href,
+  secondaryCta,
+  secondaryHref,
+  image,
+  alt,
+  imageLoading = 'eager'
+}: Props = Astro.props;
+---
+
+<article class="creation-card">
+  <div class="creation-copy">
+    <h2>{title}</h2>
+    <p>{body}</p>
+    <div class="creation-actions">
+      <a class="button button-secondary" href={href}>{cta}</a>
+      {secondaryCta && secondaryHref && <a class="button button-secondary" href={secondaryHref}>{secondaryCta}</a>}
+    </div>
+  </div>
+  <img src={image} alt={alt} loading={imageLoading} decoding="async" />
+</article>

@@ -1,0 +1,32 @@
+---
+import { contactInfo, site } from '../../data/site';
+import { socialLinks } from '../../data/social';
+
+const {
+  homeHref = '/'
+}: {
+  homeHref?: string;
+} = Astro.props;
+---
+
+<footer id="footer" class="footer section-dark">
+  <div class="container footer-grid">
+    <div class="footer-contact">
+      <a class="brand footer-brand" href={homeHref}>
+        <span>Bradley</span>
+        <span>Arsenault</span>
+      </a>
+      <p>{contactInfo.phone}</p>
+      <p><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
+      <div class="socials" aria-label="Social links">
+        {socialLinks.map(({ label, href, icon }) => (
+          <a href={href} aria-label={label}>
+            <img src={icon} alt="" />
+          </a>
+        ))}
+      </div>
+    </div>
+    <p class="copyright">{site.copyright}</p>
+    <img class="footer-mark" src={site.brandLogo} alt="" />
+  </div>
+</footer>

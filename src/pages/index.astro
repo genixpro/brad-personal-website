@@ -1,248 +1,32 @@
 ---
-import SiteHeader from '../components/SiteHeader.astro';
-import '../styles/global.css';
-
-const stats = [
-  ['5', "acquisitions of companies I've built technology for"],
-  ['20+', "successful products, prototypes and models I've built for companies"],
-  ['∞', 'the number of AI products I want to launch before I die'],
-  ['87', 'proposals, designs and ideations created with visionary entrepreneurs']
-];
-
-const companies = [
-  ['ScotiaBank', '/assets/company-scotiabank.png'],
-  ['GenSquared', '/assets/company-gensquared.png'],
-  ['Blueprint', '/assets/company-blueprint.png'],
-  ['HubDoc', '/assets/company-hubdoc.png'],
-  ['FishRecruit', '/assets/company-fishrecruit.png'],
-  ['StanAI', '/assets/company-stan-ai.png'],
-  ['Analytics4Life', '/assets/company-analytics4life.png'],
-  ['Sensibill', '/assets/company-sensibill.png'],
-  ['PureFacts', '/assets/company-purefacts.png'],
-  ['RulesCube', '/assets/company-rulescube.png'],
-  ['UpstreamWorks', '/assets/company-positive-networks.png']
-];
-
-const consultingBullets = [
-  '100% no obligation to purchase anything',
-  'Come up with your next AI product',
-  'Find out costs, timelines, and expectations around building AI technology',
-  'Establish the best strategy for you to not get replaced with AI',
-  'Make your dream come true'
-];
-
-const pageTitle = 'Bradley Arsenault | Freelance AI Engineer | Home';
-const pageDescription =
-  'Bradley (Brad) Arsenault is a reliable & talented AI consultant and freelance AI product engineer with a proven track record of building cutting-edge AI products from the ground up.';
-const canonicalUrl = 'https://www.bradleyarsenault.me';
-const imageUrl =
-  'https://static.wixstatic.com/media/387c90_dd3cb4178c9d4644a817f8a34aaae862%7Emv2.png/v1/fit/w_2500,h_1330,al_c/387c90_dd3cb4178c9d4644a817f8a34aaae862%7Emv2.png';
+import ClientLogoGrid from '../components/home/ClientLogoGrid.astro';
+import ConsultationSection from '../components/home/ConsultationSection.astro';
+import HomeHero from '../components/home/HomeHero.astro';
+import OriginStorySection from '../components/home/OriginStorySection.astro';
+import PromoPanel from '../components/home/PromoPanel.astro';
+import RevelationSection from '../components/home/RevelationSection.astro';
+import StatGrid from '../components/home/StatGrid.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+import { site } from '../data/site';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={pageDescription} />
-    <link rel="icon" sizes="192x192" href="/assets/site-icon.png" type="image/png" />
-    <link rel="shortcut icon" href="/assets/site-icon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="/assets/site-icon.png" type="image/png" />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:width" content="2500" />
-    <meta property="og:image:height" content="1330" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="Bradley Arsenault AI" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={pageDescription} />
-    <meta name="twitter:image" content={imageUrl} />
-    <title>{pageTitle}</title>
-  </head>
-  <body id="top">
-    <SiteHeader homeHref="#top" />
-
-    <main>
-      <section class="hero section-dark">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="container hero-content">
-          <h1>Become an owner of AI...</h1>
-          <p class="hero-subtitle">Or get replaced by it</p>
-          <p class="hero-copy">
-            Develop your next AI product with an engineering expert who has built AI technology for
-            20+ companies leading to 5 acquisitions between them.
-          </p>
-        </div>
-      </section>
-
-      <section class="origin section-light">
-        <div class="container origin-inner">
-          <h2>"I still remember training my first neural network like it was yesterday."</h2>
-          <div class="origin-grid">
-            <div class="story-copy">
-            <p>
-              In mid-2015, I had been slaving away at Sensibill using traditional machine learning
-              for 11 months. We were getting OK results but with lots of caveats and issues,
-              averaging about 80% accuracy.
-            </p>
-          <p>
-            Then I downloaded code for my first luatorch neural network and ran it on our dataset.
-            The result made my jaw drop. It boosted the accuracy from 80% to 97%. Errors dropped
-            6 x from 20% to just 3%.
-          </p>
-          <p class="lead">
-            In one weekend of light programming, the new neural network vastly outperformed 11
-            months of continuous effort using traditional techniques.
-          </p>
-            </div>
-            <figure class="portrait">
-              <img src="/assets/profile-robot.jpg" alt="Bradley Arsenault robot portrait" />
-              <figcaption>Brad, after his 2023 conversion to become a robot.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="revelation section-dark">
-        <div class="container revelation-inner">
-          <div>
-            <h2>THIS CHANGES EVERYTHING!</h2>
-            <p class="lead">
-              That moment in 2015 training my first neural network completely changed my life. It
-              was if I had total clarity on my purpose and calling in life.
-            </p>
-            <p>
-              I realized immediately that neural networks were the future of computing. The neural
-              networks of 2015 were still primitive, but I could see where they were headed. They
-              were going to change everything.
-            </p>
-            <p>
-              It only took me weeks before I decided that I was going to start my own business in
-              AI. If the future was going to be run by machines, I was hell-bent on owning some of
-              those machines.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="stats section-white">
-        <div class="container">
-          <h2>I've been building AI tech ever since</h2>
-          <div class="stat-grid">
-            {stats.map(([value, label]) => (
-              <div class="stat">
-                <strong>{value}</strong>
-                <span>{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="consultation section-dark">
-        <div class="container consultation-inner">
-          <div>
-            <p class="eyebrow">Let me help you build AI!</p>
-            <h2>Let me help you build AI!</h2>
-          </div>
-          <ul>
-            {consultingBullets.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-          <div class="consultation-card">
-            <h3>Get a free AI product brainstorming and feasibility consultation!</h3>
-            <label class="email-field">
-              <span>Email Address</span>
-              <input type="email" name="email" placeholder="Email Address" />
-            </label>
-            <a class="button button-maroon" href="https://calendly.com/bradleyarsenault">Get a Free Consultation</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="clients section-light">
-        <div class="container">
-          <h2>Some companies I've worked with</h2>
-          <div class="logo-grid">
-            {companies.map(([name, src]) => (
-              <div class="logo-tile">
-                <img src={src} alt={name} />
-              </div>
-            ))}
-          </div>
-          <a class="button button-secondary dark-text" href="/portfolio">View My Portfolio</a>
-        </div>
-      </section>
-
-      <section class="promos section-white">
-        <article class="promo promo-owners">
-          <div class="container promo-inner">
-            <div class="promo-card">
-              <h2>Join the AI Owners Club</h2>
-              <div class="owners-card-grid">
-                <img src="/assets/ai-brain-icon.png" alt="AI brain icon" />
-                <div>
-                  <p>
-                    The AI Owners Club is a group of visionary entrepreneurs and small business owners
-                    who are dedicated to becoming owners of our AI-powered future. We share tactics and
-                    ideas, work on concepts together, build cutting-edge technology products, and grow
-                    AI-powered businesses.
-                  </p>
-                  <a class="button button-primary" href="https://genixpro.wixstudio.io/ai-owners-club">Learn More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="promo prospera">
-          <div class="container promo-inner promo-reverse">
-            <div class="promo-card prospera-card">
-              <div>
-                <h2>Check out Prosperalab</h2>
-                <p>
-                  Prosperalab is my new Startup Studio. We build Chatbot, Agent, and AI based products
-                  and services in house. We are building out a portfolio of successful AI products and
-                  services.
-                </p>
-                <a class="button button-secondary dark-text" href="https://prosperalab.ai">Learn More</a>
-              </div>
-              <img src="/assets/company-prosperalab.jpg" alt="Prosperalab logo" loading="lazy" />
-            </div>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <footer id="footer" class="footer section-dark">
-      <div class="container footer-grid">
-        <div class="footer-contact">
-          <a class="brand footer-brand" href="#top">
-            <span>Bradley</span>
-            <span>Arsenault</span>
-          </a>
-          <p>+1-647-261-0462</p>
-          <p><a href="mailto:brad@bradleyarsenault.me">brad@bradleyarsenault.me</a></p>
-          <div class="socials" aria-label="Social links">
-            <a href="https://www.linkedin.com/in/bradaarsenault/" aria-label="LinkedIn">
-              <img src="/assets/social-linkedin.png" alt="" />
-            </a>
-            <a href="https://twitter.com/genixpro?lang=en" aria-label="Twitter">
-              <img src="/assets/social-x.png" alt="" />
-            </a>
-            <a href="https://github.com/genixpro" aria-label="Github">
-              <img src="/assets/social-github.png" alt="" />
-            </a>
-          </div>
-        </div>
-        <p class="copyright">©2023 by Bradley Arsenault</p>
-        <img class="footer-mark" src="/assets/brand-logo-transparent.png" alt="" />
-      </div>
-    </footer>
-  </body>
-</html>
+<PageLayout
+  title={site.title}
+  description={site.description}
+  canonical={site.canonicalUrl}
+  image={site.imageUrl}
+  bodyClass=""
+  bodyId="top"
+  headerHomeHref="#top"
+  footerHomeHref="#top"
+>
+  <main>
+    <HomeHero />
+    <OriginStorySection />
+    <RevelationSection />
+    <StatGrid />
+    <ConsultationSection />
+    <ClientLogoGrid />
+    <PromoPanel />
+  </main>
+</PageLayout>

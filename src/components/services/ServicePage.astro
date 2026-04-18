@@ -1,0 +1,25 @@
+---
+import ServiceRow, { type Service } from './ServiceRow.astro';
+
+export interface Props {
+  title: string;
+  intro: string;
+  services: Service[];
+  contactHref?: string;
+  contactLabel?: string;
+}
+
+const { title, intro, services, contactHref, contactLabel }: Props = Astro.props;
+---
+
+<section class="service-page-section">
+  <div class="container service-page-grid">
+    <div class="service-page-intro">
+      <h1>{title}</h1>
+      <p>{intro}</p>
+    </div>
+    <div class="service-page-list">
+      {services.map((item) => <ServiceRow {...item} contactHref={contactHref} contactLabel={contactLabel} />)}
+    </div>
+  </div>
+</section>
