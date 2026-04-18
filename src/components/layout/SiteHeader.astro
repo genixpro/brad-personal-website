@@ -43,6 +43,31 @@ const isActive = (href: string) => {
   <a class="header-cta" href={headerCta.href}>{headerCta.label}</a>
 </header>
 
+<script>
+  const navMenus = Array.from(document.querySelectorAll('.nav-menu'));
+
+  const closeMenus = () => {
+    for (const menu of navMenus) {
+      if (menu.open) {
+        menu.open = false;
+      }
+    }
+  };
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!target.closest('.nav-menu')) {
+      closeMenus();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenus();
+    }
+  });
+</script>
+
 <style>
   .primary-nav {
     align-items: center;
@@ -52,8 +77,10 @@ const isActive = (href: string) => {
     position: relative;
   }
 
-  .nav-menu summary {
-    color: rgba(255, 255, 255, 0.82);
+  .nav-menu summary,
+  .nav-menu-panel a,
+  .nav-menu-panel a:visited {
+    color: var(--white);
     cursor: pointer;
     list-style: none;
   }
@@ -63,8 +90,12 @@ const isActive = (href: string) => {
   }
 
   .nav-menu summary:hover,
-  .nav-menu.active summary {
-    color: var(--cyan);
+  .nav-menu summary:focus-visible,
+  .nav-menu.active summary,
+  .nav-menu-panel a:hover,
+  .nav-menu-panel a:active,
+  .nav-menu-panel a.active {
+    color: var(--white);
   }
 
   .nav-menu-panel {
@@ -82,7 +113,7 @@ const isActive = (href: string) => {
   }
 
   .nav-menu-panel a {
-    color: rgba(255, 255, 255, 0.84);
+    color: var(--white);
     font-size: 14px;
     line-height: 1.25;
   }

@@ -72,21 +72,24 @@
 }
 
 .primary-nav a {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--white);
   cursor: pointer;
 }
 
 .primary-nav a:first-child {
-  color: var(--cyan);
+  color: var(--white);
 }
 
-.primary-nav a:hover,
+.primary-nav a:hover {
+  color: var(--white);
+}
+
 .footer a:hover {
   color: var(--cyan);
 }
 
 .primary-nav a.active {
-  color: var(--cyan);
+  color: var(--white);
 }
 
 .header-cta,
@@ -1126,7 +1129,7 @@ figcaption {
 }
 
 .subpage-body .primary-nav a:first-child:not(.active) {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--white);
 }
 
 .subpage {
