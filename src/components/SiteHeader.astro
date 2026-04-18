@@ -1,0 +1,24 @@
+---
+const navLinks = [
+  ['Home', '/'],
+  ['Portfolio', '/portfolio'],
+  ['My Creations', '/mycreations'],
+  ['Prospera Labs', 'https://www.prosperalabs.ai'],
+  ['Podcast', 'https://promptdesk.ai/podcast'],
+  ['Blog', 'https://articulon.bradleyarsenault.me'],
+  ['More', '/about']
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Bradley Arsenault home">
+    <span>Bradley</span>
+    <span>Arsenault</span>
+  </a>
+  <nav class="primary-nav" aria-label="Primary navigation">
+    {navLinks.map(([label, href]) => <a class:list={{ active: href === currentPath }} href={href}>{label}</a>)}
+  </nav>
+  <a class="header-cta" href="/book-an-intro-call">Book a Call</a>
+</header>
