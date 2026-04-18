@@ -28,7 +28,7 @@
   align-items: center;
   width: 100%;
   margin-inline: auto;
-  padding: 38px 0 0 50px;
+  padding: 38px 0 18px 50px;
   color: var(--white);
   background: transparent;
   border-bottom: 0;
@@ -927,7 +927,7 @@ figcaption {
 
   .site-header {
     width: 100%;
-    padding: 14px;
+    padding: 14px 14px 18px;
     grid-template-columns: 1fr auto;
     gap: 12px 14px;
   }
@@ -1116,7 +1116,7 @@ figcaption {
   align-items: center;
   width: 100%;
   min-height: 0;
-  padding: 36px clamp(40px, 5vw, 72px) 0;
+  padding: 36px clamp(40px, 5vw, 72px) 18px;
   background: #160f36;
 }
 
@@ -1131,6 +1131,69 @@ figcaption {
 
 .subpage {
   min-height: 60vh;
+}
+
+.sub-hero-resume {
+  min-height: 0;
+  padding: 26px 0 10px;
+}
+
+.sub-hero-resume h1 {
+  margin-bottom: 0;
+}
+
+.subpage-resume .resume-viewer {
+  padding-top: clamp(16px, 3vw, 24px);
+}
+
+.subpage-resume .resume-viewer .container {
+  width: min(1120px, calc(100% - 80px));
+  display: grid;
+  gap: 20px;
+}
+
+.resume-viewer h2 {
+  margin: 0;
+  color: #161616;
+  font-size: clamp(30px, 4vw, 46px);
+}
+
+.pdf-embed-wrap {
+  width: 100%;
+  border: 1px solid #d5dde5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(16, 32, 60, 0.12);
+}
+
+.pdf-embed {
+  width: 100%;
+  height: min(90vh, 980px);
+  min-height: 620px;
+  border: none;
+  display: block;
+}
+
+.resume-download {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.resume-fallback {
+  margin: 0;
+  color: #49556a;
+}
+
+@media (max-width: 768px) {
+  .subpage-resume .resume-viewer .container {
+    width: calc(100% - 32px);
+  }
+
+  .pdf-embed {
+    min-height: 72vh;
+  }
 }
 
 /* Subpage heroes and content grids */
@@ -2039,7 +2102,7 @@ figcaption {
     position: relative;
     width: 100%;
     min-height: 0;
-    padding: 18px 20px 0;
+    padding: 18px 20px 16px;
     gap: 14px;
   }
 
