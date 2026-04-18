@@ -1,0 +1,26 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ServicePage from '../../components/services/ServicePage.astro';
+
+type Props = {
+  service: CollectionEntry<'services'>;
+};
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+
+const { service }: Props = Astro.props;
+---
+
+<PageLayout title={`${service.data.title} | Bradley Arsenault`}>
+  <main class={`subpage subpage-services-${service.slug}`}>
+    <ServicePage {...service.data} />
+  </main>
+</PageLayout>

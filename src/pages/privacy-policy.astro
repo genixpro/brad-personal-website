@@ -1,0 +1,16 @@
+---
+import { getEntry } from 'astro:content';
+import SubHero from '../components/common/SubHero.astro';
+import LegalPage from '../components/legal/LegalPage.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const legalPage = await getEntry('legal', 'privacy-policy');
+if (!legalPage) throw new Error('Missing legal content: privacy-policy');
+---
+
+<PageLayout>
+  <main class="subpage subpage-privacy-policy">
+    <SubHero title={legalPage.data.title} variant="privacy-policy" />
+    <LegalPage paragraphs={legalPage.data.paragraphs} />
+  </main>
+</PageLayout>

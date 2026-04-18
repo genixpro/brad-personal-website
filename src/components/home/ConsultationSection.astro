@@ -1,0 +1,25 @@
+---
+import { consultingBullets } from '../../data/home';
+---
+
+<section class="consultation section-dark">
+  <div class="container consultation-inner">
+    <div>
+      <p class="eyebrow">Let me help you build AI!</p>
+      <h2>Let me help you build AI!</h2>
+    </div>
+    <ul>
+      {consultingBullets.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+    <div class="consultation-card">
+      <h3>Get a free AI product brainstorming and feasibility consultation!</h3>
+      <label class="email-field">
+        <span>Email Address</span>
+        <input type="email" name="email" placeholder="Email Address" />
+      </label>
+      <a class="button button-maroon" href="https://calendly.com/bradleyarsenault">Get a Free Consultation</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import CreationList from '../components/creations/CreationList.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const creationEntries = await getCollection('creations');
+---
+
+<PageLayout>
+  <main class="subpage subpage-mycreations">
+    <CreationList entries={creationEntries} />
+  </main>
+</PageLayout>

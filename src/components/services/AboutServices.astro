@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { aboutPage } from '../../data/about';
+
+export interface Props {
+  services: CollectionEntry<'services'>[];
+}
+
+const { services }: Props = Astro.props;
+---
+
+<>
+  <section class="about-panel">
+    <div class="container about-panel-grid">
+      <img src={aboutPage.image} alt="" />
+      <div>
+        <h1>{aboutPage.heading}</h1>
+        <p class="about-kicker">{aboutPage.kicker}</p>
+        <p>{aboutPage.body}</p>
+        <a class="button button-blue" href={aboutPage.href}>{aboutPage.cta}</a>
+      </div>
+    </div>
+  </section>
+  <section class="about-service-band">
+    <div class="container">
+      <h2>{aboutPage.serviceBandTitle.split('\n')[0]}<br />{aboutPage.serviceBandTitle.split('\n')[1]}</h2>
+      <p>{aboutPage.serviceBandBody}</p>
+    </div>
+  </section>
+  <section class="about-services">
+    <div class="container about-services-grid">
+      {services.map(({ slug: serviceSlug, data }) => (
+        <article>
+          <h2>{serviceSlug === 'software-architecture-advising' ? 'Software Architecture Advisor' : data.title}</h2>
+          <p>{data.intro}</p>
+          <a href={`/${serviceSlug}`}>Learn More</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</>

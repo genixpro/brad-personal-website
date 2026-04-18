@@ -1,0 +1,44 @@
+<dialog class="image-lightbox" id="image-lightbox" aria-label="Image preview">
+  <button class="image-lightbox-close" type="button" aria-label="Close image preview">Close</button>
+  <figure>
+    <img alt="" />
+    <figcaption></figcaption>
+  </figure>
+</dialog>
+
+<script>
+  const lightbox = document.querySelector<HTMLDialogElement>('#image-lightbox');
+  const lightboxImage = lightbox?.querySelector<HTMLImageElement>('img');
+  const lightboxCaption = lightbox?.querySelector<HTMLElement>('figcaption');
+  const closeButton = lightbox?.querySelector<HTMLButtonElement>('.image-lightbox-close');
+
+  document.querySelectorAll<HTMLButtonElement>('[data-lightbox-src]').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      if (!lightbox || !lightboxImage || !lightboxCaption) return;
+
+      const src = trigger.dataset.lightboxSrc;
+      if (!src) return;
+
+      const label = trigger.dataset.lightboxTitle ?? '';
+      lightboxImage.src = src;
+      lightboxImage.alt = label;
+      lightboxCaption.textContent = label;
+      lightbox.showModal();
+      closeButton?.focus();
+    });
+  });
+
+  closeButton?.addEventListener('click', () => lightbox?.close());
+
+  lightbox?.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      lightbox.close();
+    }
+  });
+
+  lightbox?.addEventListener('close', () => {
+    if (!lightboxImage) return;
+    lightboxImage.removeAttribute('src');
+    lightboxImage.alt = '';
+  });
+</script>

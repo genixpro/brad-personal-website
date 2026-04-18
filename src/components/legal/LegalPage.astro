@@ -1,0 +1,13 @@
+---
+export interface Props {
+  paragraphs: string[];
+}
+
+const { paragraphs }: Props = Astro.props;
+---
+
+<section class="sub-section">
+  <div class="container legal-copy">
+    {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+</section>

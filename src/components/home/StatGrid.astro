@@ -1,0 +1,17 @@
+---
+import { homeStats } from '../../data/home';
+---
+
+<section class="stats section-white">
+  <div class="container">
+    <h2>I've been building AI tech ever since</h2>
+    <div class="stat-grid">
+      {homeStats.map(({ value, label }) => (
+        <div class="stat">
+          <strong>{value}</strong>
+          <span>{label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

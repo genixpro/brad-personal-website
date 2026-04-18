@@ -1,0 +1,23 @@
+---
+import ContactForm from './ContactForm.astro';
+import ContactProfile from './ContactProfile.astro';
+import { contactPage } from '../../data/contact';
+import { contactInfo } from '../../data/site';
+---
+
+<section class="sub-section contact-section">
+  <div class="container contact-grid">
+    <ContactProfile
+      image={contactInfo.portrait}
+      name={contactInfo.name}
+      location={contactInfo.location}
+      phone={contactInfo.phone}
+      email={contactInfo.email}
+      links={[{ label: contactInfo.calendly, href: contactInfo.calendly }]}
+    />
+    <div class="contact-main">
+      <p>{contactPage.copy} <a href={contactPage.meetingHref}>{contactPage.meetingHref}</a></p>
+      <ContactForm />
+    </div>
+  </div>
+</section>

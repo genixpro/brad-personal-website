@@ -1,0 +1,20 @@
+---
+import FailureDiagram from './FailureDiagram.astro';
+
+export interface FailureDiagramData {
+  sourceLabel: string;
+  resultLabel: string;
+  source: string;
+  result: string;
+}
+
+export interface Props {
+  paragraphs: string[];
+  failureDiagram?: FailureDiagramData;
+}
+
+const { paragraphs, failureDiagram }: Props = Astro.props;
+---
+
+{paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+{failureDiagram && <FailureDiagram {...failureDiagram} />}

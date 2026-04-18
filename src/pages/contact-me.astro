@@ -1,0 +1,13 @@
+---
+import SubHero from '../components/common/SubHero.astro';
+import ContactSection from '../components/contact/ContactSection.astro';
+import { contactPage } from '../data/contact';
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout>
+  <main class="subpage subpage-contact-me">
+    <SubHero title={contactPage.title} variant="contact-me" />
+    <ContactSection />
+  </main>
+</PageLayout>

@@ -1,0 +1,65 @@
+---
+export interface PortfolioProject {
+  title: string;
+  industry: string;
+  size?: string;
+  companySize?: string;
+  location: string;
+  cost: string;
+  year: string;
+  time: string;
+  image: string;
+  fullImage?: string;
+  ribbon?: string;
+  tags: string[];
+}
+
+export interface Props extends PortfolioProject {
+  imageLoading?: 'eager' | 'lazy';
+  ribbonLoading?: 'eager' | 'lazy';
+  tagColors?: Record<string, string>;
+}
+
+const {
+  title,
+  industry,
+  size,
+  companySize,
+  location,
+  cost,
+  year,
+  time,
+  image,
+  fullImage = image,
+  ribbon,
+  tags,
+  imageLoading = 'lazy',
+  ribbonLoading = imageLoading,
+  tagColors = {}
+}: Props = Astro.props;
+
+const normalizedSize = companySize ?? size;
+---
+
+<article class="portfolio-card">
+  <div class="portfolio-card-head">
+    <h2>{title}</h2>
+    {ribbon && <img class="portfolio-ribbon" src={ribbon} alt="" loading={ribbonLoading} />}
+  </div>
+  <button class="image-lightbox-trigger portfolio-image-button" type="button" data-lightbox-src={fullImage} data-lightbox-title={title}>
+    <img class="portfolio-image" src={image} alt={title} loading={imageLoading} />
+  </button>
+  <dl class="portfolio-details">
+    <div><dt>Industry:</dt><dd>{industry}</dd></div>
+    {normalizedSize && <div><dt>Company Size:</dt><dd>{normalizedSize}</dd></div>}
+    <div><dt>Location:</dt><dd>{location}</dd></div>
+  </dl>
+  <div class="portfolio-tags" aria-label="Project tags">
+    {tags.map((tag) => <span style={`--tag-bg: ${tagColors[tag] ?? '#117923'}`}>{tag}</span>)}
+  </div>
+  <dl class="portfolio-metrics">
+    <div><dt>Cost:</dt><dd>{cost}</dd></div>
+    <div><dt>Year:</dt><dd>{year}</dd></div>
+    <div><dt>Project Time</dt><dd>{time}</dd></div>
+  </dl>
+</article>

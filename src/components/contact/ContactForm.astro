@@ -1,0 +1,18 @@
+---
+export interface Props {
+  submitLabel?: string;
+}
+
+const { submitLabel = 'Send' }: Props = Astro.props;
+---
+
+<form class="contact-form" onsubmit="return false">
+  <div class="form-row">
+    <label>First Name<input name="firstName" required /></label>
+    <label>Last Name<input name="lastName" required /></label>
+  </div>
+  <label>Email *<input type="email" name="email" required /></label>
+  <label>Phone<input name="phone" placeholder="Phone" /></label>
+  <label>Message<textarea name="message" required></textarea></label>
+  <button class="button button-primary" type="submit">{submitLabel}</button>
+</form>

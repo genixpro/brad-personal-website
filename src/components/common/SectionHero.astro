@@ -1,0 +1,17 @@
+---
+import SubHero from './SubHero.astro';
+
+export interface Props {
+  title: string;
+  intro?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
+  variant?: string;
+}
+
+const props: Props = Astro.props;
+---
+
+<SubHero {...props} />

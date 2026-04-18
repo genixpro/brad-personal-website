@@ -1,0 +1,17 @@
+---
+import { companies } from '../../data/home';
+---
+
+<section class="clients section-light">
+  <div class="container">
+    <h2>Some companies I've worked with</h2>
+    <div class="logo-grid">
+      {companies.map(({ name, src }) => (
+        <div class="logo-tile">
+          <img src={src} alt={name} />
+        </div>
+      ))}
+    </div>
+    <a class="button button-secondary dark-text" href="/portfolio">View My Portfolio</a>
+  </div>
+</section>
