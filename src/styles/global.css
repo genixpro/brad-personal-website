@@ -1515,8 +1515,10 @@ figcaption {
 .creation-copy p {
   max-width: 480px;
   margin-bottom: 54px;
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--white);
+  font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: clamp(21px, 2.1vw, 27px);
+  font-weight: 300;
   line-height: 1.18;
 }
 
