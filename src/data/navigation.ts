@@ -29,7 +29,6 @@ export const navGroups: NavGroup[] = [
       { label: 'About Me', href: '/about' },
       { label: 'Presentations', href: '/presentations' },
       { label: 'Book a Meeting', href: 'https://calendly.com/bradleyarsenault' },
-      { label: 'AI Owners Club', href: 'https://genixpro.wixstudio.io/ai-owners-club' },
       { label: 'Resume', href: '/resume' },
       { label: 'Github', href: 'https://github.com/genixpro' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/bradaarsenault/' },

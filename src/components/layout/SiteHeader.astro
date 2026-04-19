@@ -44,7 +44,7 @@ const isActive = (href: string) => {
 </header>
 
 <script>
-  const navMenus = Array.from(document.querySelectorAll('.nav-menu'));
+  const navMenus = Array.from(document.querySelectorAll<HTMLDetailsElement>('.nav-menu'));
 
   const closeMenus = () => {
     for (const menu of navMenus) {
@@ -56,7 +56,7 @@ const isActive = (href: string) => {
 
   document.addEventListener('click', (event) => {
     const target = event.target;
-    if (!target.closest('.nav-menu')) {
+    if (target instanceof Element && !target.closest('.nav-menu')) {
       closeMenus();
     }
   });
