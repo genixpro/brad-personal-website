@@ -3,16 +3,16 @@
 
 /* Shared section shells */
 .section-dark {
-  color: var(--white);
-  background: var(--deep);
+  color: var(--color-text-inverse);
+  background: var(--color-bg-section-dark);
 }
 
 .section-light {
-  background: var(--paper);
+  background: var(--color-bg-subtle);
 }
 
 .section-white {
-  background: var(--white);
+  background: var(--color-bg-surface);
 }
 
 /* Shared brand mark */
@@ -33,13 +33,13 @@
   top: -6px;
   width: 4px;
   height: 42px;
-  background: var(--cyan);
+  background: var(--color-accent-primary);
   content: '';
   transform: skewX(-18deg);
 }
 
 .brand span:first-child {
-  color: var(--white);
+  color: var(--color-text-inverse);
 }
 
 /* Shared buttons */
@@ -57,19 +57,19 @@
 }
 
 .button-primary {
-  color: var(--black);
-  background: var(--cyan);
+  color: var(--color-text-heading);
+  background: var(--color-accent-primary);
 }
 
 .button-secondary {
-  color: var(--white);
+  color: var(--color-text-inverse);
   border-color: currentColor;
 }
 
 .button-blue {
-  color: var(--white);
-  background: #0b51ba;
-  border-color: #8fb8ff;
+  color: var(--color-text-inverse);
+  background: var(--color-accent-secondary-dark);
+  border-color: var(--color-accent-secondary-border);
   text-transform: none;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .subpage-body {
-  background: #f3f5f7;
+  background: var(--color-bg-subpage);
 }
 
 .subpage {
@@ -124,8 +124,8 @@
 /* Subpage heroes and content grids */
 .sub-hero {
   padding: clamp(80px, 10vw, 135px) 0;
-  color: var(--white);
-  background: #160f36;
+  color: var(--color-text-inverse);
+  background: var(--color-bg-brand-dark);
   text-align: center;
 }
 
@@ -168,9 +168,9 @@
   width: 404px;
   min-height: 62px;
   margin-top: 26px;
-  color: var(--cyan);
+  color: var(--color-accent-primary);
   background: transparent;
-  border-color: var(--cyan);
+  border-color: var(--color-accent-primary);
 }
 
 .sub-hero-contact-me h1 {
@@ -204,18 +204,18 @@
 
 .subpage-portfolio .sub-section {
   padding: 68px 0 90px;
-  background: #160f36;
+  background: var(--color-bg-brand-dark);
 }
 
 .subpage-presentations .sub-section {
   padding: 38px 0 66px;
-  background: var(--white);
+  background: var(--color-bg-surface);
 }
 
 .creations-showcase {
   padding: 52px 0 78px;
-  color: var(--white);
-  background: #160f36;
+  color: var(--color-text-inverse);
+  background: var(--color-bg-brand-dark);
 }
 
 .portfolio-grid,
@@ -234,8 +234,8 @@
 .portfolio-card,
 .creation-card,
 .legal-copy {
-  background: var(--white);
-  border: 1px solid #dfe4e8;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
 }
 
 .portfolio-card {
@@ -246,7 +246,7 @@
   min-height: 540px;
   padding: 0;
   overflow: hidden;
-  border-color: #e8e6e6;
+  border-color: var(--color-border-subtle);
 }
 
 .portfolio-card h2 {
@@ -255,7 +255,7 @@
   width: 255px;
   min-height: 74px;
   margin: 13px auto 15px 36px;
-  color: var(--black);
+  color: var(--color-text-heading);
   font-size: 18px;
   font-weight: 800;
   line-height: 1.2;
@@ -281,9 +281,9 @@
   height: 242px;
   margin-left: -1px;
   object-fit: cover;
-  background: #eef1f5;
+  background: var(--color-bg-surface-muted);
   border: 2px solid transparent;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.38));
+  filter: drop-shadow(0 2px 3px var(--shadow-image));
 }
 
 .portfolio-image-button {
@@ -311,13 +311,13 @@
 .portfolio-card dt,
 .portfolio-card dd {
   margin: 0;
-  color: var(--black);
+  color: var(--color-text-heading);
   font-size: 16px;
   line-height: 1.2;
 }
 
 .portfolio-card dt {
-  color: #5d6776;
+  color: var(--color-text-secondary);
 }
 
 .portfolio-card dd {
@@ -340,8 +340,8 @@
   align-items: center;
   min-height: 22px;
   padding: 5px 10px;
-  color: var(--white);
-  background: var(--tag-bg, #117923);
+  color: var(--color-text-inverse);
+  background: var(--tag-bg, var(--color-tag-default));
   border-radius: 25px;
   font-size: 11px;
   line-height: 1;
@@ -379,14 +379,14 @@
 }
 
 .legal-copy p {
-  color: var(--black);
+  color: var(--color-text-heading);
   font-size: 20px;
   line-height: 1.55;
 }
 
 .creation-list > h1 {
   margin: 0;
-  color: var(--white);
+  color: var(--color-text-inverse);
   font-size: clamp(56px, 6vw, 78px);
   text-align: left;
 }
@@ -406,14 +406,14 @@
 
 .creation-copy h2 {
   margin-bottom: 34px;
-  color: var(--white);
+  color: var(--color-text-inverse);
   font-size: clamp(30px, 3vw, 40px);
 }
 
 .creation-copy p {
   max-width: 480px;
   margin-bottom: 54px;
-  color: var(--white);
+  color: var(--color-text-inverse);
   font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: clamp(21px, 2.1vw, 27px);
   font-weight: 300;
@@ -428,8 +428,8 @@
 
 .creation-card .button {
   min-width: 228px;
-  color: var(--cyan-dark);
-  border-color: var(--cyan-dark);
+  color: var(--color-accent-primary-dark);
+  border-color: var(--color-accent-primary-dark);
   text-transform: none;
 }
 
@@ -451,15 +451,15 @@
   max-height: calc(100vh - 36px);
   padding: 54px 18px 18px;
   overflow: hidden;
-  color: var(--white);
-  background: #080710;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--color-text-inverse);
+  background: var(--color-bg-lightbox);
+  border: 1px solid var(--color-border-inverse);
   border-radius: 8px;
-  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 28px 72px var(--shadow-lightbox);
 }
 
 .image-lightbox::backdrop {
-  background: rgba(0, 0, 0, 0.78);
+  background: var(--color-overlay-dark-78);
 }
 
 .image-lightbox-close {
@@ -468,9 +468,9 @@
   right: 14px;
   min-height: 34px;
   padding: 6px 14px;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-text-inverse);
+  background: var(--color-overlay-white-12);
+  border: 1px solid var(--color-border-inverse-strong);
   border-radius: 4px;
   font: inherit;
   cursor: pointer;
@@ -489,12 +489,12 @@
   max-width: 100%;
   max-height: calc(100vh - 140px);
   margin: 0 auto;
-  background: #000;
+  background: var(--color-bg-media);
 }
 
 .image-lightbox figcaption {
   margin: 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-overlay-white-80);
   font-size: 15px;
   font-style: normal;
   line-height: 1.3;

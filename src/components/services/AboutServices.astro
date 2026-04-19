@@ -44,7 +44,7 @@ const { services }: Props = Astro.props;
   .about-panel {
     padding: 50px 0 44px;
     background:
-      linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.86)),
+      linear-gradient(var(--color-overlay-white-90), var(--color-overlay-white-86)),
       url('/assets/robot-parts-background.jpg') center / cover;
   }
 
@@ -63,7 +63,7 @@ const { services }: Props = Astro.props;
 
   .about-panel h1 {
     margin-bottom: 2px;
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: 34px;
     font-weight: 400;
     line-height: 1.2;
@@ -71,14 +71,14 @@ const { services }: Props = Astro.props;
 
   .about-kicker {
     margin-bottom: 28px;
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: 26px;
     font-style: italic;
     line-height: 1.2;
   }
 
   .about-panel p:not(.about-kicker) {
-    color: #4d4f65;
+    color: var(--color-text-subtle);
     font-size: 18px;
     line-height: 1.45;
   }
@@ -91,9 +91,9 @@ const { services }: Props = Astro.props;
   .about-service-band {
     padding: 70px 0 56px;
     min-height: 394px;
-    color: var(--white);
+    color: var(--color-text-inverse);
     background:
-      linear-gradient(rgba(22, 15, 54, 0.88), rgba(22, 15, 54, 0.9)),
+      linear-gradient(var(--color-overlay-brand-88), var(--color-overlay-brand-90)),
       url('/assets/ai-control-room.jpg') center / cover;
     text-align: center;
   }
@@ -106,7 +106,7 @@ const { services }: Props = Astro.props;
   .about-service-band p {
     max-width: 960px;
     margin: 0 auto;
-    color: var(--white);
+    color: var(--color-text-inverse);
     font-size: 18px;
     font-weight: 800;
     line-height: 1.65;
@@ -114,7 +114,7 @@ const { services }: Props = Astro.props;
 
   .about-services {
     padding: 68px 0 82px;
-    background: var(--white);
+    background: var(--color-bg-surface);
   }
 
   .about-services-grid {
@@ -131,13 +131,13 @@ const { services }: Props = Astro.props;
 
   .about-services h2 {
     margin-bottom: 16px;
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: 30px;
     line-height: 1.05;
   }
 
   .about-services p {
-    color: #4d4f65;
+    color: var(--color-text-subtle);
     font-size: 17px;
     line-height: 1.45;
   }
@@ -146,7 +146,7 @@ const { services }: Props = Astro.props;
     align-self: end;
     width: max-content;
     margin-top: 16px;
-    color: #1664d8;
+    color: var(--color-accent-link);
     font-weight: 800;
   }
 

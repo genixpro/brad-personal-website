@@ -22,9 +22,9 @@ import { homeStats } from '../../data/home';
     padding: 68px 0 74px;
     overflow: hidden;
     background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.68) 48%, rgba(255, 255, 255, 0.58) 100%),
+      linear-gradient(90deg, var(--color-overlay-white-78) 0%, var(--color-overlay-white-68) 48%, var(--color-overlay-white-58) 100%),
       url('/assets/enlarge_genixpro_a_brite_white_web_page_banner_background_depicting_inf_a5077a00-d2ee-4766-b216-cbe4019667f3.png') center / cover no-repeat,
-      var(--white);
+      var(--color-text-inverse);
   }
 
   .stats :global(.container) {
@@ -35,7 +35,7 @@ import { homeStats } from '../../data/home';
   .stats h2 {
     max-width: 1120px;
     margin: 0 auto 36px;
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: clamp(40px, 4.1vw, 58px);
     text-align: center;
   }
@@ -61,14 +61,14 @@ import { homeStats } from '../../data/home';
     display: block;
     min-width: 0;
     margin-bottom: 0;
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: clamp(42px, 5vw, 58px);
     line-height: 0.95;
     text-align: right;
   }
 
   .stat span {
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: 24px;
     line-height: 1.25;
   }

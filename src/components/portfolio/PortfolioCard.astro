@@ -63,7 +63,7 @@ const normalizedSize = companySize ?? size;
     <div><dt>Location:</dt><dd>{location}</dd></div>
   </dl>
   <div class="portfolio-tags" aria-label="Project tags">
-    {tags.map((tag) => <span style={`--tag-bg: ${tagColors[tag] ?? '#117923'}`}>{tag}</span>)}
+    {tags.map((tag) => <span style={`--tag-bg: ${tagColors[tag] ?? 'var(--color-tag-default)'}`}>{tag}</span>)}
   </div>
   <dl class="portfolio-metrics">
     <div><dt>Cost:</dt><dd>{cost}</dd></div>

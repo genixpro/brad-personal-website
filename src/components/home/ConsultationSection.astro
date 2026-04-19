@@ -30,9 +30,9 @@ import { consultingBullets } from '../../data/home';
     padding: 76px 0 94px;
     overflow: hidden;
     background:
-      linear-gradient(90deg, rgba(22, 15, 54, 0.96), rgba(22, 15, 54, 0.68)),
+      linear-gradient(90deg, var(--color-overlay-brand-96), var(--color-overlay-brand-68)),
       url('/assets/cyber-laptop-background.jpg') center / cover,
-      var(--black);
+      var(--color-text-heading);
   }
 
   .consultation-inner {
@@ -55,7 +55,7 @@ import { consultingBullets } from '../../data/home';
   .consultation .eyebrow {
     display: none;
     margin-bottom: 16px;
-    color: var(--cyan);
+    color: var(--color-accent-primary);
     font-size: 15px;
     font-weight: 800;
     letter-spacing: 0;
@@ -70,15 +70,15 @@ import { consultingBullets } from '../../data/home';
     display: grid;
     gap: 20px;
     padding: 30px;
-    color: var(--black);
-    background: var(--white);
+    color: var(--color-text-heading);
+    background: var(--color-bg-surface);
     grid-column: 2;
     grid-row: 2;
   }
 
   .consultation-card h3 {
     margin: 0;
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: 29px;
     line-height: 1.1;
   }
@@ -86,7 +86,7 @@ import { consultingBullets } from '../../data/home';
   .email-field {
     display: grid;
     gap: 6px;
-    color: #4f4f58;
+    color: var(--color-text-soft);
     font-family: Georgia, 'Times New Roman', serif;
     font-style: italic;
   }
@@ -103,12 +103,12 @@ import { consultingBullets } from '../../data/home';
     width: 100%;
     min-height: 46px;
     padding: 10px 14px;
-    border: 1px solid #a8a8b2;
+    border: 1px solid var(--color-border-control-dark);
     font: inherit;
   }
 
   .email-field input::placeholder {
-    color: #4f4f58;
+    color: var(--color-text-soft);
     opacity: 1;
   }
 
@@ -118,8 +118,8 @@ import { consultingBullets } from '../../data/home';
 
   .button-maroon {
     width: 100%;
-    color: var(--white);
-    background: var(--maroon);
+    color: var(--color-text-inverse);
+    background: var(--color-accent-danger);
     text-transform: none;
   }
 
@@ -137,7 +137,7 @@ import { consultingBullets } from '../../data/home';
   .consultation li {
     position: relative;
     padding-left: 0;
-    color: rgba(255, 255, 255, 0.86);
+    color: var(--color-overlay-white-86);
     font-size: 24px;
     line-height: 1.3;
   }

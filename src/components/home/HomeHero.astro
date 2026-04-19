@@ -25,12 +25,12 @@ import { homeHero } from '../../data/home';
     inset: 0;
     z-index: 0;
     background:
-      linear-gradient(rgba(22, 15, 54, 0.68), rgba(22, 15, 54, 0.72)),
+      linear-gradient(var(--color-overlay-brand-68), var(--color-overlay-brand-72)),
       url('/assets/network-wave-background.jpg') center / cover,
-      linear-gradient(rgba(21, 224, 251, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(21, 224, 251, 0.08) 1px, transparent 1px),
-      radial-gradient(circle at 70% 18%, rgba(21, 224, 251, 0.14), transparent 34%),
-      #160f36;
+      linear-gradient(var(--color-overlay-cyan-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-overlay-cyan-grid) 1px, transparent 1px),
+      radial-gradient(circle at 70% 18%, var(--color-overlay-cyan-glow), transparent 34%),
+      var(--color-bg-brand-dark);
     background-size: auto, cover, 56px 56px, 56px 56px, auto, auto;
   }
 
@@ -39,7 +39,7 @@ import { homeHero } from '../../data/home';
     inset: 0;
     z-index: 1;
     content: '';
-    background: linear-gradient(180deg, rgba(22, 15, 54, 0), rgba(22, 15, 54, 0.2) 100%);
+    background: linear-gradient(180deg, var(--color-overlay-brand-0), var(--color-overlay-brand-20) 100%);
   }
 
   .hero-content {
@@ -66,7 +66,7 @@ import { homeHero } from '../../data/home';
 
   .hero-copy {
     max-width: 860px;
-    color: rgba(255, 255, 255, 0.86);
+    color: var(--color-overlay-white-86);
     font-size: clamp(22px, 1.8vw, 24px);
     font-weight: 800;
     line-height: 1.32;

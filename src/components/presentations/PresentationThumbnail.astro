@@ -22,7 +22,7 @@ const { image, alt, loading = 'lazy' }: Props = Astro.props;
     min-height: 0;
     margin-bottom: 24px;
     overflow: hidden;
-    background: #160f36;
+    background: var(--color-bg-brand-dark);
   }
 
   .video-placeholder img {
@@ -35,9 +35,9 @@ const { image, alt, loading = 'lazy' }: Props = Astro.props;
     position: absolute;
     width: 42px;
     height: 42px;
-    border: 2px solid rgba(255, 255, 255, 0.78);
+    border: 2px solid var(--color-overlay-white-78);
     border-radius: 50%;
-    background: rgba(22, 15, 54, 0.22);
+    background: var(--color-overlay-brand-22);
   }
 
   .video-placeholder span::after {
@@ -46,7 +46,7 @@ const { image, alt, loading = 'lazy' }: Props = Astro.props;
     left: 15px;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-left: 13px solid var(--white);
+    border-left: 13px solid var(--color-text-inverse);
     content: '';
   }
 </style>

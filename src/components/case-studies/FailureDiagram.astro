@@ -23,7 +23,7 @@ const { sourceLabel, resultLabel, source, result }: Props = Astro.props;
     gap: 12px 64px;
     align-items: center;
     margin: 36px 14px 0;
-    color: var(--black);
+    color: var(--color-text-heading);
     text-align: center;
   }
 
@@ -33,7 +33,7 @@ const { sourceLabel, resultLabel, source, result }: Props = Astro.props;
 
   .failure-diagram span {
     padding: 18px 12px;
-    border: 1px solid #666;
+    border: 1px solid var(--color-border-neutral);
     font-size: 18px;
     text-align: left;
   }
@@ -42,8 +42,8 @@ const { sourceLabel, resultLabel, source, result }: Props = Astro.props;
     display: grid;
     place-items: center;
     min-height: 70px;
-    background: #00f000;
-    border: 1px solid #038303;
+    background: var(--color-accent-success);
+    border: 1px solid var(--color-accent-success-border);
     font-size: 20px;
     font-weight: 400;
   }

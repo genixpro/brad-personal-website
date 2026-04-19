@@ -30,7 +30,7 @@ const { submitLabel = 'Send' }: Props = Astro.props;
   .contact-form label {
     display: grid;
     gap: 8px;
-    color: #4f4f58;
+    color: var(--color-text-soft);
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 14px;
     font-style: italic;
@@ -47,7 +47,7 @@ const { submitLabel = 'Send' }: Props = Astro.props;
     width: 100%;
     min-height: 36px;
     padding: 7px 10px;
-    border: 2px solid #aaaaba;
+    border: 2px solid var(--color-border-control);
     font: inherit;
   }
 
@@ -61,8 +61,8 @@ const { submitLabel = 'Send' }: Props = Astro.props;
     width: 118px;
     min-height: 36px;
     padding: 7px 18px;
-    color: var(--white);
-    background: #155de9;
+    color: var(--color-text-inverse);
+    background: var(--color-accent-secondary);
     text-transform: none;
   }
 

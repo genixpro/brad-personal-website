@@ -20,15 +20,15 @@ import { companies } from '../../data/home';
   .clients {
     padding: 80px 0 70px;
     background:
-      linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+      linear-gradient(var(--color-overlay-white-92), var(--color-overlay-white-92)),
       url('/assets/workshop-background.png') center / cover,
-      #f6f6f4;
+      var(--color-client-logo-bg);
     background-blend-mode: normal, luminosity, normal;
   }
 
   .clients h2 {
     margin-bottom: 48px;
-    color: #5a566f;
+    color: var(--color-client-logo-text);
     font-size: clamp(24px, 3vw, 34px);
     letter-spacing: 0.22em;
     text-align: center;
@@ -76,16 +76,16 @@ import { companies } from '../../data/home';
   }
 
   .dark-text {
-    color: var(--ink);
+    color: var(--color-text-primary);
   }
 
   .clients .button {
     display: flex;
     width: max-content;
     margin-inline: auto;
-    color: var(--white);
-    background: var(--blue);
-    border-color: var(--blue);
+    color: var(--color-text-inverse);
+    background: var(--color-accent-secondary);
+    border-color: var(--color-accent-secondary);
     text-transform: none;
   }
 

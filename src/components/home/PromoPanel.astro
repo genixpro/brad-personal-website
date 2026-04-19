@@ -43,11 +43,11 @@ import { promos } from '../../data/home';
   }
 
   .promo-owners {
-    color: var(--white);
+    color: var(--color-text-inverse);
     background:
-      linear-gradient(rgba(22, 15, 54, 0.92), rgba(22, 15, 54, 0.94)),
+      linear-gradient(var(--color-overlay-brand-92), var(--color-overlay-brand-94)),
       url('/assets/dark-city-banner.png') center / cover,
-      #25294e;
+      var(--color-spotlight-cool);
   }
 
   .promo-owners::before {
@@ -55,8 +55,8 @@ import { promos } from '../../data/home';
     inset: 0;
     content: '';
     background:
-      linear-gradient(rgba(21, 224, 251, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(21, 224, 251, 0.08) 1px, transparent 1px);
+      linear-gradient(var(--color-overlay-cyan-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-overlay-cyan-grid) 1px, transparent 1px);
     background-size: 42px 42px;
     opacity: 0.6;
   }
@@ -76,12 +76,12 @@ import { promos } from '../../data/home';
   .promo-card {
     width: min(850px, 100%);
     padding: clamp(30px, 5vw, 56px);
-    color: var(--black);
-    background: var(--white);
+    color: var(--color-text-heading);
+    background: var(--color-bg-surface);
   }
 
   .promo-card h2 {
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: 56px;
     text-align: center;
   }
@@ -113,9 +113,9 @@ import { promos } from '../../data/home';
 
   .prospera {
     background:
-      linear-gradient(90deg, rgba(210, 248, 14, 0.96), rgba(210, 248, 14, 0.68)),
+      linear-gradient(90deg, var(--color-spotlight-lime-strong), var(--color-spotlight-lime-soft)),
       url('/assets/network-wave-background.jpg') center / cover,
-      #dffd2f;
+      var(--color-spotlight-lime);
   }
 
   .prospera-card {
@@ -147,14 +147,14 @@ import { promos } from '../../data/home';
   }
 
   .prospera-card .button {
-    color: var(--black);
-    background: var(--cyan);
-    border-color: var(--cyan);
+    color: var(--color-text-heading);
+    background: var(--color-accent-primary);
+    border-color: var(--color-accent-primary);
     text-transform: none;
   }
 
   .dark-text {
-    color: var(--ink);
+    color: var(--color-text-primary);
   }
 
   @media (max-width: 980px) {

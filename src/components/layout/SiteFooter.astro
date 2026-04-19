@@ -43,12 +43,12 @@ const isExternal = (href: string) => href.startsWith('http');
     position: relative;
     min-height: 360px;
     padding: 54px 0 34px;
-    background-color: rgb(21, 15, 52);
+    background-color: var(--color-bg-brand-dark);
   }
 
   .footer a,
   .footer a:hover {
-    color: #ffffff;
+    color: var(--color-text-inverse);
   }
 
   .footer-grid {
@@ -89,7 +89,7 @@ const isExternal = (href: string) => href.startsWith('http');
 
   .footer p {
     margin-bottom: 8px;
-    color: rgba(255, 255, 255, 0.78);
+    color: var(--color-overlay-white-78);
     font-size: 38px;
     font-weight: 800;
     line-height: 1.2;
@@ -101,7 +101,7 @@ const isExternal = (href: string) => href.startsWith('http');
   }
 
   .footer-contact p {
-    color: #ffffff;
+    color: var(--color-text-inverse);
   }
 
   .copyright {

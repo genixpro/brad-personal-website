@@ -56,14 +56,14 @@ const resolvedImageAlt = imageAlt || title;
   }
 
   .presentation-card-link:hover h2 {
-    color: #1664d8;
+    color: var(--color-accent-link);
   }
 
   .presentation-card h2 {
     display: -webkit-box;
     min-height: 50px;
     overflow: hidden;
-    color: var(--black);
+    color: var(--color-text-heading);
     font-size: clamp(22px, 1.9vw, 26px);
     line-height: 0.98;
     -webkit-box-orient: vertical;
@@ -73,7 +73,7 @@ const resolvedImageAlt = imageAlt || title;
   .presentation-card time {
     display: block;
     margin-top: 10px;
-    color: #5d6776;
+    color: var(--color-text-secondary);
     font-size: 14px;
     font-weight: 800;
     line-height: 1.2;

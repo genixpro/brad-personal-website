@@ -84,7 +84,7 @@
     max-height: none;
     margin: 0;
     padding: clamp(20px, 5vw, 72px);
-    color: var(--white);
+    color: var(--color-text-inverse);
     background: transparent;
     border: 0;
   }
@@ -95,7 +95,7 @@
   }
 
   .presentation-lightbox::backdrop {
-    background: rgba(7, 5, 18, 0.88);
+    background: var(--color-overlay-deep-88);
   }
 
   :global(.presentation-lightbox-open) {
@@ -105,8 +105,8 @@
   .presentation-lightbox-dialog {
     position: relative;
     width: min(1180px, 100%);
-    background: #000;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+    background: var(--color-bg-media);
+    box-shadow: 0 24px 80px var(--shadow-video-lightbox);
   }
 
   .presentation-lightbox-frame {
@@ -120,7 +120,7 @@
     width: 100%;
     height: 100%;
     border: 0;
-    background: #000;
+    background: var(--color-bg-media);
   }
 
   .presentation-lightbox-close {
@@ -130,8 +130,8 @@
     z-index: 1;
     min-width: 82px;
     min-height: 38px;
-    border: 2px solid var(--white);
-    color: var(--white);
+    border: 2px solid var(--color-text-inverse);
+    color: var(--color-text-inverse);
     background: transparent;
     font-family: inherit;
     font-size: 14px;
@@ -141,7 +141,7 @@
 
   .presentation-lightbox-close:hover,
   .presentation-lightbox-close:focus-visible {
-    color: #160f36;
-    background: var(--white);
+    color: var(--color-bg-brand-dark);
+    background: var(--color-bg-surface);
   }
 </style>
