@@ -57,6 +57,7 @@ const presentations = defineCollection({
     title: z.string(),
     image: z.string(),
     href: z.string().optional(),
+    videoSrc: z.string().optional(),
     date: z.string().optional(),
     order: z.number()
   })
