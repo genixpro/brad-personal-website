@@ -1242,18 +1242,13 @@ figcaption {
   margin-inline: 0;
 }
 
-.sub-hero-presentations p {
-  max-width: 620px;
-  margin: 28px 0 0;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.32;
-}
-
 .sub-hero-presentations .button {
   width: 404px;
   min-height: 62px;
   margin-top: 26px;
+  color: var(--cyan);
+  background: transparent;
+  border-color: var(--cyan);
 }
 
 .sub-hero-contact-me h1 {
@@ -1266,6 +1261,15 @@ figcaption {
   font-size: clamp(20px, 2.6vw, 30px);
   font-weight: 800;
   line-height: 1.35;
+}
+
+.sub-hero-presentations p {
+  max-width: 620px;
+  margin: 28px 0 0;
+  font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.32;
 }
 
 .sub-hero .button {
