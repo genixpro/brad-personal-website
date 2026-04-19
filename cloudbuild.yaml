@@ -1,5 +1,6 @@
 substitutions:
   _BUCKET: brad-personal-website-pharaoh-418820
+  _CDN_URL_MAP: pharaoh-url-map
 
 steps:
   - name: node:20
@@ -32,6 +33,15 @@ steps:
         set -euo pipefail
 
         token="$(gcloud auth print-access-token)"
+        html_cache_control="no-cache, max-age=0, must-revalidate"
+
+        find dist -name '*.html' -print | while IFS= read -r file; do
+          object="${file#dist/}"
+
+          gcloud storage objects update "gs://${_BUCKET}/${object}" \
+            --cache-control="${html_cache_control}" \
+            >/dev/null
+        done
 
         find dist -name index.html -mindepth 2 -print | while IFS= read -r file; do
           route="${file#dist/}"
@@ -42,9 +52,29 @@ steps:
             --data-binary "@${file}" \
             --header "Authorization: Bearer ${token}" \
             --header "Content-Type: text/html" \
-            --header "Cache-Control: public, max-age=3600" \
+            --header "Cache-Control: ${html_cache_control}" \
             "https://storage.googleapis.com/upload/storage/v1/b/${_BUCKET}/o?uploadType=media&name=${route}" \
             >/dev/null
+        done
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -euo pipefail
+
+        cdn_url_map="${_CDN_URL_MAP}"
+
+        if [[ -z "${cdn_url_map}" ]]; then
+          echo "Skipping Cloud CDN invalidation because _CDN_URL_MAP is not set."
+          exit 0
+        fi
+
+        for path in "/" "/*"; do
+          gcloud compute url-maps invalidate-cdn-cache "${cdn_url_map}" \
+            --path="${path}" \
+            --async
         done
 
 options:
