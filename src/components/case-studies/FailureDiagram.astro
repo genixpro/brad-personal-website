@@ -15,3 +15,36 @@ const { sourceLabel, resultLabel, source, result }: Props = Astro.props;
   <span>{source}</span>
   <strong>{result}</strong>
 </div>
+
+<style>
+  .failure-diagram {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 12px 64px;
+    align-items: center;
+    margin: 36px 14px 0;
+    color: var(--black);
+    text-align: center;
+  }
+
+  .failure-diagram em {
+    font-size: 18px;
+  }
+
+  .failure-diagram span {
+    padding: 18px 12px;
+    border: 1px solid #666;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .failure-diagram strong {
+    display: grid;
+    place-items: center;
+    min-height: 70px;
+    background: #00f000;
+    border: 1px solid #038303;
+    font-size: 20px;
+    font-weight: 400;
+  }
+</style>

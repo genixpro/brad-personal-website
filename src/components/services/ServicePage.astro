@@ -23,3 +23,75 @@ const { title, intro, services, contactHref, contactLabel }: Props = Astro.props
     </div>
   </div>
 </section>
+
+<style>
+  .service-page-section {
+    padding: 90px 0 110px;
+    background: var(--white);
+  }
+
+  .service-page-grid {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 78px;
+    align-items: start;
+  }
+
+  .service-page-intro {
+    margin-left: -118px;
+  }
+
+  .service-page-intro h1 {
+    margin: 0 0 28px;
+    color: var(--black);
+    font-size: clamp(48px, 5.6vw, 72px);
+  }
+
+  .service-page-intro p {
+    color: var(--black);
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.55;
+  }
+
+  .service-page-list {
+    display: grid;
+    gap: 58px;
+  }
+
+  @media (max-width: 900px) {
+    .service-page-intro {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .service-page-section {
+      padding: 54px 0 70px;
+    }
+
+    .service-page-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .service-page-intro {
+      margin-left: 0;
+    }
+
+    .service-page-intro h1 {
+      margin-bottom: 22px;
+      font-size: 44px;
+      overflow-wrap: anywhere;
+    }
+
+    .service-page-intro p {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .service-page-list {
+      gap: 42px;
+    }
+  }
+</style>

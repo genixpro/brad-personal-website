@@ -1,16 +1,9 @@
 ---
 import { getEntry } from 'astro:content';
-import SubHero from '../components/common/SubHero.astro';
-import LegalPage from '../components/legal/LegalPage.astro';
-import PageLayout from '../layouts/PageLayout.astro';
+import LegalRoutePage from '../components/legal/LegalRoutePage.astro';
 
 const legalPage = await getEntry('legal', 'terms-and-conditions');
 if (!legalPage) throw new Error('Missing legal content: terms-and-conditions');
 ---
 
-<PageLayout>
-  <main class="subpage subpage-terms-and-conditions">
-    <SubHero title={legalPage.data.title} variant="terms-and-conditions" />
-    <LegalPage paragraphs={legalPage.data.paragraphs} />
-  </main>
-</PageLayout>
+<LegalRoutePage legalPage={legalPage} slug="terms-and-conditions" />

@@ -1,4 +1,6 @@
 ---
+import LightboxImageTrigger from '../common/LightboxImageTrigger.astro';
+
 export interface PortfolioProject {
   title: string;
   industry: string;
@@ -46,9 +48,15 @@ const normalizedSize = companySize ?? size;
     <h2>{title}</h2>
     {ribbon && <img class="portfolio-ribbon" src={ribbon} alt="" loading={ribbonLoading} />}
   </div>
-  <button class="image-lightbox-trigger portfolio-image-button" type="button" data-lightbox-src={fullImage} data-lightbox-title={title}>
-    <img class="portfolio-image" src={image} alt={title} loading={imageLoading} />
-  </button>
+  <LightboxImageTrigger
+    src={image}
+    fullSrc={fullImage}
+    alt={title}
+    title={title}
+    loading={imageLoading}
+    wrapperClass="portfolio-image-button"
+    imageClass="portfolio-image"
+  />
   <dl class="portfolio-details">
     <div><dt>Industry:</dt><dd>{industry}</dd></div>
     {normalizedSize && <div><dt>Company Size:</dt><dd>{normalizedSize}</dd></div>}

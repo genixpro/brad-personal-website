@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SubHero from '../common/SubHero.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalPage from './LegalPage.astro';
+
+export interface Props {
+  legalPage: CollectionEntry<'legal'>;
+  slug: string;
+}
+
+const { legalPage, slug }: Props = Astro.props;
+---
+
+<PageLayout>
+  <main class={`subpage subpage-${slug}`}>
+    <SubHero title={legalPage.data.title} variant={slug} />
+    <LegalPage paragraphs={legalPage.data.paragraphs} />
+  </main>
+</PageLayout>

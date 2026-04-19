@@ -15,3 +15,104 @@ import { companies } from '../../data/home';
     <a class="button button-secondary dark-text" href="/portfolio">View My Portfolio</a>
   </div>
 </section>
+
+<style>
+  .clients {
+    padding: 80px 0 70px;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+      url('/assets/network-wave-background.jpg') center / cover,
+      #f6f6f4;
+    background-blend-mode: normal, luminosity, normal;
+  }
+
+  .clients h2 {
+    margin-bottom: 48px;
+    color: #5a566f;
+    font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: 0.22em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px 38px;
+    width: min(1000px, 100%);
+    margin: 0 auto 34px;
+  }
+
+  .logo-grid::before {
+    content: '';
+    flex-basis: 100%;
+    height: 0;
+    order: 2;
+  }
+
+  .logo-tile {
+    display: grid;
+    place-items: center;
+    order: 3;
+    width: auto;
+    min-height: 54px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+  }
+
+  .logo-tile:nth-child(-n+3) {
+    order: 1;
+  }
+
+  .logo-tile img {
+    max-width: 230px;
+    max-height: 66px;
+    object-fit: contain;
+    filter: grayscale(1) sepia(1) saturate(6) hue-rotate(225deg);
+    opacity: 0.9;
+  }
+
+  .dark-text {
+    color: var(--ink);
+  }
+
+  .clients .button {
+    display: flex;
+    width: max-content;
+    margin-inline: auto;
+    color: var(--white);
+    background: var(--blue);
+    border-color: var(--blue);
+    text-transform: none;
+  }
+
+  @media (max-width: 980px) {
+    .logo-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .clients {
+      padding-block: 58px;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 18px;
+    }
+
+    .logo-tile {
+      min-height: 46px;
+    }
+
+    .logo-tile img {
+      max-width: min(150px, 100%);
+      max-height: 58px;
+    }
+  }
+</style>

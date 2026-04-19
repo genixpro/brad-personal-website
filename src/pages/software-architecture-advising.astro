@@ -1,14 +1,9 @@
 ---
 import { getEntry } from 'astro:content';
-import ServicePage from '../components/services/ServicePage.astro';
-import PageLayout from '../layouts/PageLayout.astro';
+import ServiceRoutePage from '../components/services/ServiceRoutePage.astro';
 
 const service = await getEntry('services', 'software-architecture-advising');
 if (!service) throw new Error('Missing service content: software-architecture-advising');
 ---
 
-<PageLayout>
-  <main class="subpage subpage-software-architecture-advising">
-    <ServicePage {...service.data} />
-  </main>
-</PageLayout>
+<ServiceRoutePage service={service} className="subpage-software-architecture-advising" />

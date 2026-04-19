@@ -24,3 +24,95 @@ const { image, name, location, phone, email, links = [] }: Props = Astro.props;
   {email && <p class="contact-line"><a href={`mailto:${email}`}>{email}</a></p>}
   {links.map(({ label, href }) => <p class="contact-line"><a href={href}>{label}</a></p>)}
 </div>
+
+<style>
+  .contact-profile img {
+    width: 298px;
+    height: 402px;
+    object-fit: cover;
+    margin: 0 0 20px 112px;
+  }
+
+  .contact-profile h2 {
+    margin-bottom: 18px;
+    margin-left: 108px;
+    color: var(--black);
+    font-size: 30px;
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .contact-line {
+    position: relative;
+    margin-left: 177px;
+    color: var(--black);
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.55;
+  }
+
+  .contact-line a {
+    text-decoration: underline;
+  }
+
+  .contact-line::before {
+    position: absolute;
+    left: -66px;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    color: var(--black);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    transform: translateY(-50%);
+  }
+
+  .contact-line:nth-of-type(1)::before {
+    content: '\2302';
+  }
+
+  .contact-line:nth-of-type(2)::before {
+    content: '\260E';
+  }
+
+  .contact-line:nth-of-type(3)::before {
+    content: '\2709';
+  }
+
+  .contact-line:nth-of-type(4)::before {
+    content: '\25A1';
+  }
+
+  @media (max-width: 640px) {
+    .contact-profile {
+      width: 100%;
+      max-width: none;
+    }
+
+    .contact-profile img {
+      width: min(298px, 100%);
+      height: auto;
+      margin: 0 0 20px;
+    }
+
+    .contact-profile h2,
+    .contact-line {
+      width: 100%;
+      margin-left: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-line {
+      padding-left: 46px;
+    }
+
+    .contact-line::before {
+      left: 4px;
+    }
+  }
+</style>

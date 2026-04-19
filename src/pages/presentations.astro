@@ -1,11 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
 import SubHero from '../components/common/SubHero.astro';
-import PresentationCard from '../components/presentations/PresentationCard.astro';
+import PresentationGrid from '../components/presentations/PresentationGrid.astro';
+import PresentationVideoLightbox from '../components/presentations/PresentationVideoLightbox.astro';
 import PageLayout from '../layouts/PageLayout.astro';
 
 const presentationEntries = await getCollection('presentations');
-const presentations = [...presentationEntries].sort((left, right) => left.data.order - right.data.order);
+const presentations = [...presentationEntries]
+  .sort((left, right) => left.data.order - right.data.order)
+  .map(({ data }) => ({
+    title: data.title,
+    image: data.image,
+    href: data.videoSrc ?? data.href,
+    date: data.date
+  }));
 ---
 
 <PageLayout>
@@ -17,83 +25,8 @@ const presentations = [...presentationEntries].sort((left, right) => left.data.o
       variant="presentations"
     />
     <section class="sub-section">
-      <div class="container presentation-grid">
-        {presentations.map(({ data }) => (
-          <PresentationCard
-            title={data.title}
-            image={data.image}
-            href={data.videoSrc ?? data.href}
-            date={data.date}
-          />
-        ))}
-      </div>
+      <PresentationGrid presentations={presentations} />
     </section>
-    <div class="presentation-lightbox" data-presentation-lightbox hidden>
-      <button class="presentation-lightbox-close" type="button" data-presentation-lightbox-close aria-label="Close video">
-        Close
-      </button>
-      <div class="presentation-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Presentation video">
-        <div class="presentation-lightbox-frame" data-presentation-lightbox-frame></div>
-      </div>
-    </div>
+    <PresentationVideoLightbox />
   </main>
 </PageLayout>
-
-<script is:inline>
-  const lightbox = document.querySelector('[data-presentation-lightbox]');
-  const lightboxFrame = document.querySelector('[data-presentation-lightbox-frame]');
-  const closeButton = document.querySelector('[data-presentation-lightbox-close]');
-  const videoLinks = document.querySelectorAll('[data-presentation-video]');
-
-  const closeLightbox = () => {
-    if (!lightbox || !lightboxFrame) return;
-    lightbox.hidden = true;
-    lightboxFrame.replaceChildren();
-    document.body.classList.remove('presentation-lightbox-open');
-  };
-
-  const openLightbox = (videoSrc, title) => {
-    if (!lightbox || !lightboxFrame) return;
-
-    const isYouTube = videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be');
-    const media = isYouTube ? document.createElement('iframe') : document.createElement('video');
-
-    if (isYouTube) {
-      const separator = videoSrc.includes('?') ? '&' : '?';
-      media.src = `${videoSrc}${separator}autoplay=1&rel=0`;
-      media.title = title;
-      media.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      media.allowFullscreen = true;
-    } else {
-      media.src = videoSrc;
-      media.controls = true;
-      media.autoplay = true;
-      media.playsInline = true;
-      media.setAttribute('aria-label', title);
-    }
-
-    lightboxFrame.replaceChildren(media);
-    lightbox.hidden = false;
-    document.body.classList.add('presentation-lightbox-open');
-    closeButton?.focus();
-  };
-
-  videoLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const videoSrc = link.getAttribute('data-presentation-video');
-      const title = link.getAttribute('data-presentation-title') || 'Presentation video';
-      if (!videoSrc) return;
-
-      event.preventDefault();
-      openLightbox(videoSrc, title);
-    });
-  });
-
-  closeButton?.addEventListener('click', closeLightbox);
-  lightbox?.addEventListener('click', (event) => {
-    if (event.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeLightbox();
-  });
-</script>

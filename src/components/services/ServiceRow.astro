@@ -30,3 +30,67 @@ const {
     <a class="button button-blue" href={contactHref}>{contactLabel}</a>
   </div>
 </article>
+
+<style>
+  .service-row {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 34px;
+    max-width: 620px;
+    color: var(--black);
+  }
+
+  .service-row > span,
+  .service-row h2,
+  .service-row p,
+  .service-row strong {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.55;
+  }
+
+  .service-row h2 {
+    margin-bottom: 34px;
+  }
+
+  .service-row p {
+    max-width: 570px;
+    margin-bottom: 28px;
+  }
+
+  .service-row strong {
+    display: block;
+    margin-bottom: 28px;
+  }
+
+  .service-row .button {
+    width: 176px;
+    min-height: 40px;
+    padding: 8px 16px;
+  }
+
+  @media (max-width: 640px) {
+    .service-row {
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 18px;
+      max-width: none;
+    }
+
+    .service-row > span,
+    .service-row h2,
+    .service-row p,
+    .service-row strong {
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .service-row h2 {
+      margin-bottom: 18px;
+    }
+
+    .service-row p,
+    .service-row strong {
+      margin-bottom: 22px;
+    }
+  }
+</style>

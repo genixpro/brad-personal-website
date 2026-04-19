@@ -1,4 +1,6 @@
 ---
+import LightboxImageTrigger from '../common/LightboxImageTrigger.astro';
+
 export interface Creation {
   title: string;
   body: string;
@@ -38,7 +40,13 @@ const {
       {secondaryCta && secondaryHref && <a class="button button-secondary" href={secondaryHref}>{secondaryCta}</a>}
     </div>
   </div>
-  <button class="image-lightbox-trigger creation-image-button" type="button" data-lightbox-src={fullImage} data-lightbox-title={title}>
-    <img src={image} alt={alt} loading={imageLoading} decoding="async" />
-  </button>
+  <LightboxImageTrigger
+    src={image}
+    fullSrc={fullImage}
+    alt={alt}
+    title={title}
+    loading={imageLoading}
+    decoding="async"
+    wrapperClass="creation-image-button"
+  />
 </article>

@@ -16,3 +16,65 @@ const { submitLabel = 'Send' }: Props = Astro.props;
   <label>Message<textarea name="message" required></textarea></label>
   <button class="button button-primary" type="submit">{submitLabel}</button>
 </form>
+
+<style>
+  .contact-form {
+    display: grid;
+    gap: 18px;
+    max-width: 430px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+  }
+
+  .contact-form label {
+    display: grid;
+    gap: 8px;
+    color: #4f4f58;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    min-height: 36px;
+    padding: 7px 10px;
+    border: 2px solid #aaaaba;
+    font: inherit;
+  }
+
+  .contact-form textarea {
+    min-height: 160px;
+    resize: vertical;
+  }
+
+  .contact-form .button {
+    justify-self: end;
+    width: 118px;
+    min-height: 36px;
+    padding: 7px 18px;
+    color: var(--white);
+    background: #155de9;
+    text-transform: none;
+  }
+
+  @media (max-width: 640px) {
+    .contact-form,
+    .form-row {
+      width: 100%;
+      max-width: none;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

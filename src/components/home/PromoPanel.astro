@@ -31,3 +31,157 @@ import { promos } from '../../data/home';
     </div>
   </article>
 </section>
+
+<style>
+  .promos {
+    overflow: hidden;
+  }
+
+  .promo {
+    position: relative;
+    padding: 100px 0;
+  }
+
+  .promo-owners {
+    color: var(--white);
+    background:
+      linear-gradient(rgba(22, 15, 54, 0.92), rgba(22, 15, 54, 0.94)),
+      url('/assets/dark-city-banner.png') center / cover,
+      #25294e;
+  }
+
+  .promo-owners::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background:
+      linear-gradient(rgba(21, 224, 251, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(21, 224, 251, 0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.6;
+  }
+
+  .promo-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .promo-inner p {
+    max-width: 720px;
+    font-size: 20px;
+  }
+
+  .promo-card {
+    width: min(850px, 100%);
+    padding: clamp(30px, 5vw, 56px);
+    color: var(--black);
+    background: var(--white);
+  }
+
+  .promo-card h2 {
+    color: var(--black);
+    font-size: 56px;
+    text-align: center;
+  }
+
+  .owners-card-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .owners-card-grid img {
+    width: 190px;
+    margin-inline: auto;
+  }
+
+  .owners-card-grid p {
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.55;
+  }
+
+  .owners-card-grid .button {
+    min-width: 150px;
+    min-height: 42px;
+    padding: 10px 22px;
+    text-transform: none;
+  }
+
+  .prospera {
+    background:
+      linear-gradient(90deg, rgba(210, 248, 14, 0.96), rgba(210, 248, 14, 0.68)),
+      url('/assets/network-wave-background.jpg') center / cover,
+      #dffd2f;
+  }
+
+  .prospera-card {
+    position: relative;
+    display: block;
+    padding: 56px 120px;
+  }
+
+  .prospera-card h2 {
+    font-size: 46px;
+    text-align: left;
+  }
+
+  .prospera-card p {
+    max-width: 475px;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.55;
+  }
+
+  .prospera-card img {
+    position: absolute;
+    top: 94px;
+    right: 20px;
+    display: block;
+    width: 300px;
+    max-width: 300px;
+    mix-blend-mode: multiply;
+  }
+
+  .prospera-card .button {
+    color: var(--black);
+    background: var(--cyan);
+    border-color: var(--cyan);
+    text-transform: none;
+  }
+
+  .dark-text {
+    color: var(--ink);
+  }
+
+  @media (max-width: 980px) {
+    .promo-inner,
+    .owners-card-grid,
+    .prospera-card {
+      grid-template-columns: 1fr;
+    }
+
+    .prospera-card img {
+      position: static;
+      width: min(300px, 100%);
+      margin-top: 28px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .promo {
+      padding: 64px 0;
+    }
+
+    .promo-card {
+      padding: 28px 24px;
+    }
+
+    .promo-card h2 {
+      overflow-wrap: anywhere;
+    }
+  }
+</style>

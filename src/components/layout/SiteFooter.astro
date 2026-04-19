@@ -30,3 +30,158 @@ const {
     <img class="footer-mark" src={site.brandLogo} alt="" />
   </div>
 </footer>
+
+<style>
+  .footer {
+    position: relative;
+    min-height: 360px;
+    padding: 54px 0 34px;
+    background-color: rgb(21, 15, 52);
+  }
+
+  .footer a,
+  .footer a:hover {
+    color: #ffffff;
+  }
+
+  .footer-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+    width: min(1280px, calc(100% - 160px));
+    padding-left: 25px;
+  }
+
+  .footer-brand {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 38px;
+    line-height: 1.05;
+  }
+
+  .footer-brand span {
+    display: inline;
+  }
+
+  .footer-brand::before {
+    top: -6px;
+    left: -10px;
+    width: 6px;
+    height: 96px;
+  }
+
+  .footer .brand {
+    padding-left: 25px;
+  }
+
+  .footer .brand::before {
+    left: -10px;
+  }
+
+  .footer p {
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .footer-contact,
+  .footer .copyright {
+    padding-left: 25px;
+  }
+
+  .footer-contact p {
+    color: #ffffff;
+  }
+
+  .copyright {
+    padding-top: 20px;
+    border-top: 0;
+  }
+
+  .footer .copyright {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .footer-mark {
+    position: absolute;
+    top: 50%;
+    right: 240px;
+    display: block;
+    width: 260px;
+    transform: translateY(-50%);
+  }
+
+  .socials {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-top: 32px;
+  }
+
+  .socials img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .socials a[aria-label='Github'] img {
+    filter: invert(1);
+  }
+
+  @media (max-width: 980px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer nav {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer {
+      min-height: 0;
+      padding: 42px 0 30px;
+    }
+
+    .footer-grid {
+      width: min(var(--max), calc(100% - 28px));
+    }
+
+    .footer-brand {
+      font-size: 20px;
+    }
+
+    .footer-brand::before {
+      left: -8px;
+      width: 4px;
+      height: 64px;
+    }
+
+    .footer .brand::before {
+      left: -8px;
+    }
+
+    .footer p {
+      font-size: 22px;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-mark {
+      position: static;
+      width: 132px;
+      margin-top: -34px;
+      margin-left: auto;
+    }
+
+    .socials img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import type { SimplePage } from '../../data/simplePages';
+import PageLayout from '../../layouts/PageLayout.astro';
+import SubHero from './SubHero.astro';
+
+export interface Props {
+  page: SimplePage;
+  slug: string;
+}
+
+const { page, slug }: Props = Astro.props;
+const cta = page.cta && page.href ? { label: page.cta, href: page.href } : undefined;
+---
+
+<PageLayout>
+  <main class={`subpage subpage-${slug}`}>
+    <SubHero title={page.title} intro={page.intro} cta={cta} variant={slug} />
+  </main>
+</PageLayout>

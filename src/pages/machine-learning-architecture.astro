@@ -1,14 +1,9 @@
 ---
 import { getEntry } from 'astro:content';
-import ServicePage from '../components/services/ServicePage.astro';
-import PageLayout from '../layouts/PageLayout.astro';
+import ServiceRoutePage from '../components/services/ServiceRoutePage.astro';
 
 const service = await getEntry('services', 'machine-learning-architecture');
 if (!service) throw new Error('Missing service content: machine-learning-architecture');
 ---
 
-<PageLayout>
-  <main class="subpage subpage-machine-learning-architecture">
-    <ServicePage {...service.data} />
-  </main>
-</PageLayout>
+<ServiceRoutePage service={service} className="subpage-machine-learning-architecture" />

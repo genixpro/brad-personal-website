@@ -1,0 +1,37 @@
+---
+import PresentationCard, { type Presentation } from './PresentationCard.astro';
+
+export interface Props {
+  presentations: Presentation[];
+}
+
+const { presentations }: Props = Astro.props;
+---
+
+<div class="container presentation-grid">
+  {
+    presentations.map((presentation) => (
+      <PresentationCard
+        title={presentation.title}
+        image={presentation.image}
+        href={presentation.href}
+        date={presentation.date}
+      />
+    ))
+  }
+</div>
+
+<style>
+  .presentation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 70px 84px;
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .presentation-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

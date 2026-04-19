@@ -1,0 +1,130 @@
+<div class="presentation-lightbox" data-presentation-lightbox hidden>
+  <button class="presentation-lightbox-close" type="button" data-presentation-lightbox-close aria-label="Close video">
+    Close
+  </button>
+  <div class="presentation-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Presentation video">
+    <div class="presentation-lightbox-frame" data-presentation-lightbox-frame></div>
+  </div>
+</div>
+
+<script is:inline>
+  const lightbox = document.querySelector('[data-presentation-lightbox]');
+  const lightboxFrame = document.querySelector('[data-presentation-lightbox-frame]');
+  const closeButton = document.querySelector('[data-presentation-lightbox-close]');
+  const videoLinks = document.querySelectorAll('[data-presentation-video]');
+
+  const closeLightbox = () => {
+    if (!lightbox || !lightboxFrame) return;
+    lightbox.hidden = true;
+    lightboxFrame.replaceChildren();
+    document.body.classList.remove('presentation-lightbox-open');
+  };
+
+  const openLightbox = (videoSrc, title) => {
+    if (!lightbox || !lightboxFrame) return;
+
+    const isYouTube = videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be');
+    const media = isYouTube ? document.createElement('iframe') : document.createElement('video');
+
+    if (isYouTube) {
+      const separator = videoSrc.includes('?') ? '&' : '?';
+      media.src = `${videoSrc}${separator}autoplay=1&rel=0`;
+      media.title = title;
+      media.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      media.allowFullscreen = true;
+    } else {
+      media.src = videoSrc;
+      media.controls = true;
+      media.autoplay = true;
+      media.playsInline = true;
+      media.setAttribute('aria-label', title);
+    }
+
+    lightboxFrame.replaceChildren(media);
+    lightbox.hidden = false;
+    document.body.classList.add('presentation-lightbox-open');
+    closeButton?.focus();
+  };
+
+  videoLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const videoSrc = link.getAttribute('data-presentation-video');
+      const title = link.getAttribute('data-presentation-title') || 'Presentation video';
+      if (!videoSrc) return;
+
+      event.preventDefault();
+      openLightbox(videoSrc, title);
+    });
+  });
+
+  closeButton?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeLightbox();
+  });
+</script>
+
+<style>
+  .presentation-lightbox[hidden] {
+    display: none;
+  }
+
+  .presentation-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: grid;
+    place-items: center;
+    padding: clamp(20px, 5vw, 72px);
+    background: rgba(7, 5, 18, 0.88);
+  }
+
+  :global(.presentation-lightbox-open) {
+    overflow: hidden;
+  }
+
+  .presentation-lightbox-dialog {
+    position: relative;
+    width: min(1180px, 100%);
+    background: #000;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+  }
+
+  .presentation-lightbox-frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+
+  .presentation-lightbox-frame :global(iframe),
+  .presentation-lightbox-frame :global(video) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #000;
+  }
+
+  .presentation-lightbox-close {
+    position: fixed;
+    top: clamp(18px, 3vw, 34px);
+    right: clamp(18px, 3vw, 38px);
+    z-index: 1;
+    min-width: 82px;
+    min-height: 38px;
+    border: 2px solid var(--white);
+    color: var(--white);
+    background: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .presentation-lightbox-close:hover,
+  .presentation-lightbox-close:focus-visible {
+    color: #160f36;
+    background: var(--white);
+  }
+</style>

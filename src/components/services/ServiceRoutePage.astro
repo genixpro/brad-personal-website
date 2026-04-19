@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ServicePage from './ServicePage.astro';
+
+export interface Props {
+  service: CollectionEntry<'services'>;
+  className: string;
+  layoutTitle?: string;
+}
+
+const { service, className, layoutTitle }: Props = Astro.props;
+---
+
+<PageLayout title={layoutTitle}>
+  <main class={`subpage ${className}`}>
+    <ServicePage {...service.data} />
+  </main>
+</PageLayout>

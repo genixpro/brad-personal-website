@@ -1,0 +1,52 @@
+---
+export interface Props {
+  image: string;
+  alt: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const { image, alt, loading = 'lazy' }: Props = Astro.props;
+---
+
+<div class="video-placeholder">
+  <img src={image} alt={alt} loading={loading} />
+  <span aria-hidden="true"></span>
+</div>
+
+<style>
+  .video-placeholder {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+    margin-bottom: 24px;
+    overflow: hidden;
+    background: #160f36;
+  }
+
+  .video-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-placeholder span {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border: 2px solid rgba(255, 255, 255, 0.78);
+    border-radius: 50%;
+    background: rgba(22, 15, 54, 0.22);
+  }
+
+  .video-placeholder span::after {
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 13px solid var(--white);
+    content: '';
+  }
+</style>

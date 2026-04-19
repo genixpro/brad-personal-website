@@ -1,4 +1,6 @@
 ---
+import PresentationThumbnail from './PresentationThumbnail.astro';
+
 export interface Presentation {
   title: string;
   image: string;
@@ -27,22 +29,53 @@ const resolvedImageAlt = imageAlt || title;
         target={isExternalLink ? '_blank' : undefined}
         rel={isExternalLink ? 'noreferrer' : undefined}
       >
-        <div class="video-placeholder">
-          <img src={image} alt={resolvedImageAlt} loading={imageLoading} />
-          <span aria-hidden="true"></span>
-        </div>
+        <PresentationThumbnail image={image} alt={resolvedImageAlt} loading={imageLoading} />
         <h2>{title}</h2>
         {date && <time datetime={date}>{date}</time>}
       </a>
     ) : (
       <div class="presentation-card-content">
-        <div class="video-placeholder">
-          <img src={image} alt={resolvedImageAlt} loading={imageLoading} />
-          <span aria-hidden="true"></span>
-        </div>
+        <PresentationThumbnail image={image} alt={resolvedImageAlt} loading={imageLoading} />
         <h2>{title}</h2>
         {date && <time datetime={date}>{date}</time>}
       </div>
     )
   }
 </article>
+
+<style>
+  .presentation-card {
+    background: transparent;
+    border: 0;
+  }
+
+  .presentation-card-link,
+  .presentation-card-content {
+    display: block;
+    color: inherit;
+  }
+
+  .presentation-card-link:hover h2 {
+    color: #1664d8;
+  }
+
+  .presentation-card h2 {
+    display: -webkit-box;
+    min-height: 50px;
+    overflow: hidden;
+    color: var(--black);
+    font-size: clamp(22px, 1.9vw, 26px);
+    line-height: 0.98;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .presentation-card time {
+    display: block;
+    margin-top: 10px;
+    color: #5d6776;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+</style>

@@ -1,4 +1,5 @@
 ---
+import ResumeViewer from '../components/resume/ResumeViewer.astro';
 import { simplePages } from '../data/simplePages';
 import PageLayout from '../layouts/PageLayout.astro';
 
@@ -8,91 +9,6 @@ const resumePdfUrl = '/assets/full-size/resume/Bradley_Arsenault_Resume_2025.pdf
 
 <PageLayout>
   <main class="subpage subpage-resume">
-    <section class="resume-title">
-      <div class="container">
-        <h1>{page.title}</h1>
-      </div>
-    </section>
-    <section class="sub-section resume-viewer">
-      <div class="container">
-        <div class="pdf-embed-wrap">
-          <iframe
-            src={`${resumePdfUrl}#view=FitH`}
-            title="Bradley Arsenault Resume PDF"
-            class="pdf-embed"
-            loading="lazy"
-          />
-        </div>
-        <div class="resume-download">
-          <a class="button button-secondary" href={resumePdfUrl} download="Bradley_Arsenault_Resume_2025.pdf">
-            Download PDF
-          </a>
-          <p class="resume-fallback">
-            If the embedded viewer does not load in your browser, use the Download PDF button above.
-          </p>
-        </div>
-      </div>
-    </section>
+    <ResumeViewer title={page.title} resumePdfUrl={resumePdfUrl} />
   </main>
 </PageLayout>
-
-<style>
-  .resume-title {
-    padding: 42px 0 18px;
-    color: var(--white);
-    background: #160f36;
-    width: 100%;
-  }
-
-  .resume-title,
-  .resume-title .container,
-  .resume-title h1 {
-    text-align: center;
-  }
-
-  .resume-title .container {
-    display: grid;
-    justify-items: center;
-    width: calc(100% - 80px);
-    max-width: var(--max);
-    margin-inline: auto;
-  }
-
-  .resume-title .container,
-  .resume-title h1 {
-    width: 100%;
-    margin-inline: auto;
-  }
-
-  .resume-title h1 {
-    margin: 0;
-    font-size: clamp(44px, 7vw, 78px);
-  }
-
-  @media (max-width: 768px) {
-    .resume-title {
-      padding: 28px 0 14px;
-    }
-
-    .resume-title h1 {
-      font-size: 44px;
-    }
-  }
-
-  .resume-download .button {
-    color: var(--white);
-    background: #111319;
-    border-color: #111319;
-  }
-
-  .resume-viewer .pdf-embed {
-    height: min(180vh, 1960px);
-    min-height: 1240px;
-  }
-
-  @media (max-width: 768px) {
-    .resume-viewer .pdf-embed {
-      min-height: 144vh;
-    }
-  }
-</style>

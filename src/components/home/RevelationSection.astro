@@ -10,3 +10,63 @@ import { revelation } from '../../data/home';
     </div>
   </div>
 </section>
+
+<style>
+  .revelation {
+    padding: 87px 0 94px;
+    background:
+      linear-gradient(rgba(22, 15, 54, 0.88), rgba(22, 15, 54, 0.88)),
+      url('/assets/ai-control-room.jpg') center / cover,
+      var(--black);
+  }
+
+  .revelation-inner {
+    width: min(980px, calc(100% - 40px));
+    text-align: left;
+  }
+
+  .revelation-inner h2 {
+    margin-bottom: 24px;
+    color: var(--white);
+    font-size: clamp(38px, 4vw, 47px);
+    line-height: 0.9;
+    text-align: center;
+  }
+
+  .revelation-inner p {
+    max-width: 909px;
+    margin-inline: auto;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: normal;
+    text-align: justify;
+  }
+
+  .revelation-inner .lead {
+    font-size: 22px;
+    font-weight: 300;
+  }
+
+  @media (min-width: 981px) {
+    .revelation {
+      padding-bottom: 154px;
+      background:
+        linear-gradient(rgba(22, 15, 54, 0.88), rgba(22, 15, 54, 0.88)),
+        url('/assets/ai-control-room.jpg') center / cover,
+        var(--black);
+    }
+
+    .revelation-inner p + p {
+      margin-top: 24px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .revelation {
+      padding-block: 58px;
+    }
+  }
+</style>

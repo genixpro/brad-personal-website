@@ -39,3 +39,120 @@ const { services }: Props = Astro.props;
     </div>
   </section>
 </>
+
+<style>
+  .about-panel {
+    padding: 50px 0 44px;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.86)),
+      url('/assets/robot-parts-background.jpg') center / cover;
+  }
+
+  .about-panel-grid {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 560px);
+    gap: 66px;
+    align-items: center;
+  }
+
+  .about-panel img {
+    width: 360px;
+    height: 486px;
+    object-fit: cover;
+  }
+
+  .about-panel h1 {
+    margin-bottom: 2px;
+    color: var(--black);
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .about-kicker {
+    margin-bottom: 28px;
+    color: var(--black);
+    font-size: 26px;
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  .about-panel p:not(.about-kicker) {
+    color: #4d4f65;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .about-panel .button {
+    width: 236px;
+    margin-top: 26px;
+  }
+
+  .about-service-band {
+    padding: 70px 0 56px;
+    min-height: 394px;
+    color: var(--white);
+    background:
+      linear-gradient(rgba(22, 15, 54, 0.88), rgba(22, 15, 54, 0.9)),
+      url('/assets/ai-control-room.jpg') center / cover;
+    text-align: center;
+  }
+
+  .about-service-band h2 {
+    margin-bottom: 30px;
+    font-size: clamp(40px, 4vw, 48px);
+  }
+
+  .about-service-band p {
+    max-width: 960px;
+    margin: 0 auto;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.65;
+  }
+
+  .about-services {
+    padding: 68px 0 82px;
+    background: var(--white);
+  }
+
+  .about-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 44px 56px;
+  }
+
+  .about-services article {
+    display: grid;
+    align-content: start;
+    min-height: 260px;
+  }
+
+  .about-services h2 {
+    margin-bottom: 16px;
+    color: var(--black);
+    font-size: 30px;
+    line-height: 1.05;
+  }
+
+  .about-services p {
+    color: #4d4f65;
+    font-size: 17px;
+    line-height: 1.45;
+  }
+
+  .about-services a {
+    align-self: end;
+    width: max-content;
+    margin-top: 16px;
+    color: #1664d8;
+    font-weight: 800;
+  }
+
+  @media (max-width: 900px) {
+    .about-services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

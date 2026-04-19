@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import CaseStudyLayout from '../../components/case-studies/CaseStudyLayout.astro';
+import CaseStudyContent from '../../components/case-studies/CaseStudyContent.astro';
 
 type Props = {
   caseStudy: CollectionEntry<'case-studies'>;
@@ -33,17 +34,7 @@ const hasBody = caseStudy.body.trim().length > 0;
       {hasBody ? (
         <Content />
       ) : (
-        <>
-          {caseStudy.data.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-          {caseStudy.data.failureDiagram && (
-            <div class="failure-diagram">
-              <em>{caseStudy.data.failureDiagram.sourceLabel}</em>
-              <em>{caseStudy.data.failureDiagram.resultLabel}</em>
-              <span>{caseStudy.data.failureDiagram.source}</span>
-              <strong>{caseStudy.data.failureDiagram.result}</strong>
-            </div>
-          )}
-        </>
+        <CaseStudyContent paragraphs={caseStudy.data.paragraphs} failureDiagram={caseStudy.data.failureDiagram} />
       )}
     </CaseStudyLayout>
   </main>
