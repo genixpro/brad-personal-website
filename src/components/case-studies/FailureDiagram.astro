@@ -47,4 +47,17 @@ const { sourceLabel, resultLabel, source, result }: Props = Astro.props;
     font-size: 20px;
     font-weight: 400;
   }
+
+  @media (max-width: 640px) {
+    .failure-diagram {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-inline: 0;
+      text-align: left;
+    }
+
+    .failure-diagram strong {
+      min-height: 56px;
+    }
+  }
 </style>

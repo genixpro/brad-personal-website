@@ -7,6 +7,8 @@ const {
 }: {
   homeHref?: string;
 } = Astro.props;
+
+const isExternal = (href: string) => href.startsWith('http');
 ---
 
 <footer id="footer" class="footer section-dark">
@@ -16,11 +18,16 @@ const {
         <span>Bradley</span>
         <span>Arsenault</span>
       </a>
-      <p>{contactInfo.phone}</p>
+      <p><a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a></p>
       <p><a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a></p>
       <div class="socials" aria-label="Social links">
         {socialLinks.map(({ label, href, icon }) => (
-          <a href={href} aria-label={label}>
+          <a
+            href={href}
+            aria-label={label}
+            target={isExternal(href) ? '_blank' : undefined}
+            rel={isExternal(href) ? 'noopener noreferrer' : undefined}
+          >
             <img src={icon} alt="" />
           </a>
         ))}
@@ -129,7 +136,7 @@ const {
     object-fit: contain;
   }
 
-  .socials a[aria-label='Github'] img {
+  .socials a[aria-label='GitHub'] img {
     filter: invert(1);
   }
 

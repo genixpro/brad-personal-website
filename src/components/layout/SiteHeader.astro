@@ -16,6 +16,8 @@ const isActive = (href: string) => {
   const normalizedHref = href.replace(/\/$/, '') || '/';
   return normalizedHref === currentPath;
 };
+
+const isExternal = (href: string) => href.startsWith('http');
 ---
 
 <header class="site-header">
@@ -24,14 +26,30 @@ const isActive = (href: string) => {
     <span>Arsenault</span>
   </a>
   <nav class="primary-nav" aria-label="Primary navigation">
-    {primaryNavLinks.map(({ label, href }) => <a class:list={{ active: isActive(href) }} href={href}>{label}</a>)}
+    {primaryNavLinks.map(({ label, href }) => (
+      <a
+        class:list={{ active: isActive(href) }}
+        href={href}
+        aria-current={isActive(href) ? 'page' : undefined}
+        target={isExternal(href) ? '_blank' : undefined}
+        rel={isExternal(href) ? 'noopener noreferrer' : undefined}
+      >
+        {label}
+      </a>
+    ))}
     {
       navGroups.map(({ label, links }) => (
         <details class:list={['nav-menu', { active: links.some(({ href }) => isActive(href)) }]}>
           <summary>{label}</summary>
           <div class="nav-menu-panel">
             {links.map(({ label, href }) => (
-              <a class:list={{ active: isActive(href) }} href={href}>
+              <a
+                class:list={{ active: isActive(href) }}
+                href={href}
+                aria-current={isActive(href) ? 'page' : undefined}
+                target={isExternal(href) ? '_blank' : undefined}
+                rel={isExternal(href) ? 'noopener noreferrer' : undefined}
+              >
                 {label}
               </a>
             ))}
@@ -102,6 +120,15 @@ const isActive = (href: string) => {
   .primary-nav a {
     color: var(--white);
     cursor: pointer;
+  }
+
+  .brand:focus-visible,
+  .primary-nav a:focus-visible,
+  .nav-menu summary:focus-visible,
+  .nav-menu-panel a:focus-visible,
+  .header-cta:focus-visible {
+    outline: 3px solid var(--cyan);
+    outline-offset: 5px;
   }
 
   .primary-nav a:first-child,

@@ -1,8 +1,8 @@
-<dialog class="image-lightbox" id="image-lightbox" aria-label="Image preview">
+<dialog class="image-lightbox" id="image-lightbox" aria-label="Image preview" aria-describedby="image-lightbox-caption">
   <button class="image-lightbox-close" type="button" aria-label="Close image preview">Close</button>
   <figure>
     <img alt="" />
-    <figcaption></figcaption>
+    <figcaption id="image-lightbox-caption"></figcaption>
   </figure>
 </dialog>
 
@@ -11,6 +11,7 @@
   const lightboxImage = lightbox?.querySelector<HTMLImageElement>('img');
   const lightboxCaption = lightbox?.querySelector<HTMLElement>('figcaption');
   const closeButton = lightbox?.querySelector<HTMLButtonElement>('.image-lightbox-close');
+  let activeTrigger: HTMLButtonElement | null = null;
 
   document.querySelectorAll<HTMLButtonElement>('[data-lightbox-src]').forEach((trigger) => {
     trigger.addEventListener('click', () => {
@@ -20,6 +21,7 @@
       if (!src) return;
 
       const label = trigger.dataset.lightboxTitle ?? '';
+      activeTrigger = trigger;
       lightboxImage.src = src;
       lightboxImage.alt = label;
       lightboxCaption.textContent = label;
@@ -40,5 +42,8 @@
     if (!lightboxImage) return;
     lightboxImage.removeAttribute('src');
     lightboxImage.alt = '';
+    lightboxCaption?.replaceChildren();
+    activeTrigger?.focus();
+    activeTrigger = null;
   });
 </script>

@@ -22,7 +22,7 @@ const { Content } = await caseStudy.render();
 const hasBody = caseStudy.body.trim().length > 0;
 ---
 
-<PageLayout title={`${caseStudy.data.title} | Bradley Arsenault`}>
+<PageLayout title={`${caseStudy.data.title} | Bradley Arsenault`} description={caseStudy.data.summary} type="article">
   <main class={`subpage subpage-case-studies-${caseStudy.slug}`}>
     <CaseStudyLayout
       title={caseStudy.data.client}

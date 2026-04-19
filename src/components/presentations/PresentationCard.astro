@@ -27,7 +27,7 @@ const resolvedImageAlt = imageAlt || title;
         data-presentation-video={href}
         data-presentation-title={title}
         target={isExternalLink ? '_blank' : undefined}
-        rel={isExternalLink ? 'noreferrer' : undefined}
+        rel={isExternalLink ? 'noopener noreferrer' : undefined}
       >
         <PresentationThumbnail image={image} alt={resolvedImageAlt} loading={imageLoading} />
         <h2>{title}</h2>

@@ -1,26 +1,33 @@
-<div class="presentation-lightbox" data-presentation-lightbox hidden>
+<dialog class="presentation-lightbox" data-presentation-lightbox aria-label="Presentation video">
   <button class="presentation-lightbox-close" type="button" data-presentation-lightbox-close aria-label="Close video">
     Close
   </button>
-  <div class="presentation-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Presentation video">
+  <div class="presentation-lightbox-dialog">
     <div class="presentation-lightbox-frame" data-presentation-lightbox-frame></div>
   </div>
-</div>
+</dialog>
 
 <script is:inline>
   const lightbox = document.querySelector('[data-presentation-lightbox]');
   const lightboxFrame = document.querySelector('[data-presentation-lightbox-frame]');
   const closeButton = document.querySelector('[data-presentation-lightbox-close]');
   const videoLinks = document.querySelectorAll('[data-presentation-video]');
+  let activeTrigger = null;
 
   const closeLightbox = () => {
-    if (!lightbox || !lightboxFrame) return;
-    lightbox.hidden = true;
-    lightboxFrame.replaceChildren();
-    document.body.classList.remove('presentation-lightbox-open');
+    if (!lightbox?.open) return;
+    lightbox.close();
   };
 
-  const openLightbox = (videoSrc, title) => {
+  const resetLightbox = () => {
+    if (!lightboxFrame) return;
+    lightboxFrame.replaceChildren();
+    document.body.classList.remove('presentation-lightbox-open');
+    activeTrigger?.focus();
+    activeTrigger = null;
+  };
+
+  const openLightbox = (videoSrc, title, trigger) => {
     if (!lightbox || !lightboxFrame) return;
 
     const isYouTube = videoSrc.includes('youtube.com') || videoSrc.includes('youtu.be');
@@ -41,8 +48,9 @@
     }
 
     lightboxFrame.replaceChildren(media);
-    lightbox.hidden = false;
+    activeTrigger = trigger;
     document.body.classList.add('presentation-lightbox-open');
+    lightbox.showModal();
     closeButton?.focus();
   };
 
@@ -53,7 +61,7 @@
       if (!videoSrc) return;
 
       event.preventDefault();
-      openLightbox(videoSrc, title);
+      openLightbox(videoSrc, title, link);
     });
   });
 
@@ -61,23 +69,32 @@
   lightbox?.addEventListener('click', (event) => {
     if (event.target === lightbox) closeLightbox();
   });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeLightbox();
-  });
+  lightbox?.addEventListener('close', resetLightbox);
 </script>
 
 <style>
-  .presentation-lightbox[hidden] {
+  .presentation-lightbox:not([open]) {
     display: none;
   }
 
   .presentation-lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    max-height: none;
+    margin: 0;
+    padding: clamp(20px, 5vw, 72px);
+    color: var(--white);
+    background: transparent;
+    border: 0;
+  }
+
+  .presentation-lightbox[open] {
     display: grid;
     place-items: center;
-    padding: clamp(20px, 5vw, 72px);
+  }
+
+  .presentation-lightbox::backdrop {
     background: rgba(7, 5, 18, 0.88);
   }
 

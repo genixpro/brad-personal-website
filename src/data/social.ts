@@ -18,7 +18,7 @@ export const socialLinks: SocialLink[] = [
     icon: assetPaths.socialX
   },
   {
-    label: 'Github',
+    label: 'GitHub',
     href: 'https://github.com/genixpro',
     icon: assetPaths.socialGithub
   }

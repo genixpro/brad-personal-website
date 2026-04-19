@@ -7,12 +7,15 @@ export interface Props {
   service: CollectionEntry<'services'>;
   className: string;
   layoutTitle?: string;
+  description?: string;
+  canonical?: string;
+  robots?: string;
 }
 
-const { service, className, layoutTitle }: Props = Astro.props;
+const { service, className, layoutTitle, description = service.data.intro, canonical, robots }: Props = Astro.props;
 ---
 
-<PageLayout title={layoutTitle}>
+<PageLayout title={layoutTitle} description={description} canonical={canonical} robots={robots}>
   <main class={`subpage ${className}`}>
     <ServicePage {...service.data} />
   </main>

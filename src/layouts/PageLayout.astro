@@ -12,6 +12,7 @@ const {
   title,
   description,
   canonical,
+  robots,
   image = site.imageUrl,
   type = 'website',
   bodyClass = 'subpage-body',
@@ -19,7 +20,7 @@ const {
   headerHomeHref = '/',
   footerHomeHref = '/'
 } = Astro.props;
-const pageTitle = pageMetadata?.title ?? title ?? site.title;
+const pageTitle = title ?? pageMetadata?.title ?? site.title;
 const pageDescription = description ?? pageMetadata?.description ?? site.description;
 const canonicalUrl = canonical ?? `${site.canonicalUrl}${path === '/' ? '' : path}`;
 const imageUrl = image.startsWith('http') ? image : `${site.canonicalUrl}${image}`;
@@ -31,6 +32,7 @@ const imageUrl = image.startsWith('http') ? image : `${site.canonicalUrl}${image
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={pageDescription} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="icon" sizes="192x192" href={site.icon} type="image/png" />
     <link rel="shortcut icon" href={site.icon} type="image/png" />
     <link rel="apple-touch-icon" href={site.icon} type="image/png" />

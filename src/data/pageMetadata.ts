@@ -5,8 +5,9 @@ export type PageMetadata = {
 
 export const pageMetadataByPath: Record<string, PageMetadata> = {
   '/case-studies': {
-    title: 'Portfolio | Bradley Arsenault AI Services',
-    description: 'A portfolio of all the projects created by AI Engineer and Freelancer Bradley Arsenault'
+    title: 'Case Studies | Bradley Arsenault AI Services',
+    description:
+      'Case studies and project examples from AI engineer and freelancer Bradley Arsenault.'
   },
   '/portfolio': {
     title: 'Portfolio | Bradley Arsenault AI Services',
@@ -70,6 +71,10 @@ export const pageMetadataByPath: Record<string, PageMetadata> = {
     title: 'AI Product Brainstorm | Bradley Arsenault | Freelance AI Engineer',
     description:
       'Book a no-obligation AI product brainstorming session to discuss your concept, costs, timeline, and feasibility.'
+  },
+  '/webinar-signup': {
+    title: 'Webinar Signup | Bradley Arsenault | Freelance AI Engineer',
+    description: 'Sign up for AI product and engineering webinars from Bradley Arsenault.'
   },
   '/resume': {
     title: 'Resume | Bradley Arsenault | Freelance AI Engineer',

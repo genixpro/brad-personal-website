@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import ServiceRoutePage from '../../components/services/ServiceRoutePage.astro';
+import { site } from '../../data/site';
 
 type Props = {
   service: CollectionEntry<'services'>;
@@ -22,4 +23,6 @@ const { service }: Props = Astro.props;
   service={service}
   className={`subpage-services-${service.slug}`}
   layoutTitle={`${service.data.title} | Bradley Arsenault`}
+  canonical={`${site.canonicalUrl}/${service.slug}`}
+  robots="noindex, follow"
 />

@@ -14,15 +14,22 @@ export interface Props {
 }
 
 const { image, name, location, phone, email, links = [] }: Props = Astro.props;
+const isExternal = (href: string) => href.startsWith('http');
 ---
 
 <div class="contact-profile">
   <img src={image} alt={name} />
   <h2>{name}</h2>
   {location && <p class="contact-line">{location}</p>}
-  {phone && <p class="contact-line">{phone}</p>}
+  {phone && <p class="contact-line"><a href={`tel:${phone}`}>{phone}</a></p>}
   {email && <p class="contact-line"><a href={`mailto:${email}`}>{email}</a></p>}
-  {links.map(({ label, href }) => <p class="contact-line"><a href={href}>{label}</a></p>)}
+  {links.map(({ label, href }) => (
+    <p class="contact-line">
+      <a href={href} target={isExternal(href) ? '_blank' : undefined} rel={isExternal(href) ? 'noopener noreferrer' : undefined}>
+        {label}
+      </a>
+    </p>
+  ))}
 </div>
 
 <style>

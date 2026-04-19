@@ -30,7 +30,7 @@ export const navGroups: NavGroup[] = [
       { label: 'Presentations', href: '/presentations' },
       { label: 'Book a Meeting', href: 'https://calendly.com/bradleyarsenault' },
       { label: 'Resume', href: '/resume' },
-      { label: 'Github', href: 'https://github.com/genixpro' },
+      { label: 'GitHub', href: 'https://github.com/genixpro' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/bradaarsenault/' },
       { label: 'Contact me', href: '/contact-me' },
       { label: 'Privacy Policy', href: '/privacy-policy' },

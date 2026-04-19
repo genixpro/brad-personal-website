@@ -3,12 +3,13 @@ import { getCollection } from 'astro:content';
 import SubHero from '../components/common/SubHero.astro';
 import PortfolioGrid from '../components/portfolio/PortfolioGrid.astro';
 import { portfolioTagColors } from '../data/portfolioTags';
+import { site } from '../data/site';
 import PageLayout from '../layouts/PageLayout.astro';
 
 const portfolioEntries = await getCollection('portfolio');
 ---
 
-<PageLayout>
+<PageLayout canonical={`${site.canonicalUrl}/portfolio`} robots="noindex, follow">
   <main class="subpage subpage-case-studies">
     <SubHero title="Portfolio" intro="Engineering Cutting Edge AI Solutions for 9+ years" variant="case-studies" />
     <PortfolioGrid entries={portfolioEntries} tagColors={portfolioTagColors} />
