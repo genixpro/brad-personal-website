@@ -24,5 +24,28 @@ steps:
       - --delete-unmatched-destination-objects
       - --exclude=(^|/)\.DS_Store$
 
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -euo pipefail
+
+        token="$(gcloud auth print-access-token)"
+
+        find dist -name index.html -mindepth 2 -print | while IFS= read -r file; do
+          route="${file#dist/}"
+          route="${route%/index.html}"
+
+          curl --fail --silent --show-error \
+            --request POST \
+            --data-binary "@${file}" \
+            --header "Authorization: Bearer ${token}" \
+            --header "Content-Type: text/html" \
+            --header "Cache-Control: public, max-age=3600" \
+            "https://storage.googleapis.com/upload/storage/v1/b/${_BUCKET}/o?uploadType=media&name=${route}" \
+            >/dev/null
+        done
+
 options:
   logging: CLOUD_LOGGING_ONLY
