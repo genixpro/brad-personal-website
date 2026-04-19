@@ -4,5 +4,6 @@ dist/
 .playwright-mcp/
 *.log
 .DS_Store
+**/.DS_Store
 bradleyarsenault-fullpage.png
 docs/astro-codebase-structure-plan.md

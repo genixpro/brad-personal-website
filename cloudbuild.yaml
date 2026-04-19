@@ -1,0 +1,28 @@
+substitutions:
+  _BUCKET: brad-personal-website-pharaoh-418820
+
+steps:
+  - name: node:20
+    entrypoint: npm
+    args:
+      - ci
+
+  - name: node:20
+    entrypoint: npm
+    args:
+      - run
+      - build
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: gcloud
+    args:
+      - storage
+      - rsync
+      - dist
+      - gs://${_BUCKET}
+      - --recursive
+      - --delete-unmatched-destination-objects
+      - --exclude=(^|/)\.DS_Store$
+
+options:
+  logging: CLOUD_LOGGING_ONLY
