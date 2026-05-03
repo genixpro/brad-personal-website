@@ -5,6 +5,6 @@ cta: "Visit the Website"
 href: "https://getpharaoh.com/"
 image: "/assets/creation-pharaoh.png"
 fullImage: "/assets/full-size/creations/pharaoh.png"
-alt: "A screenshot of the Pharaoh website showing self-healing IT systems"
+alt: "A screenshot of Pharaoh showing an active endpoint session and agent worklog"
 order: 0
 ---
