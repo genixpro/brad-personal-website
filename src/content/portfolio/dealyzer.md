@@ -5,5 +5,5 @@ year: "2025–2026"
 image: "/assets/case-studies/dealyzer/scorecard.png"
 caseStudyHref: "/case-studies/dealyzer"
 tags: ["Generative AI", "Document Processing", "Data Analytics"]
-order: 30
+order: 0
 ---
