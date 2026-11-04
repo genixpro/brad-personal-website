@@ -1,6 +1,8 @@
 ---
 title: "ThinkWELL | Agentic data analytics"
 industry: "Healthcare"
+companySize: "Large Corporation"
+location: "Vancouver"
 year: "2026"
 cost: "Est. CA$75,000"
 time: "3 months"
