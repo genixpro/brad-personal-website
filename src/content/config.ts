@@ -22,7 +22,8 @@ const portfolio = defineCollection({
     caseStudyHref: z.string().optional(),
     ribbon: z.string().optional(),
     tags: z.array(z.string()),
-    order: z.number()
+    order: z.number(),
+    hidden: z.boolean().optional()
   })
 });
 
@@ -87,6 +88,7 @@ const caseStudies = defineCollection({
     cta: z.string().optional(),
     href: z.string().optional(),
     order: z.number(),
+    hidden: z.boolean().optional(),
     failureDiagram: z
       .object({
         sourceLabel: z.string(),

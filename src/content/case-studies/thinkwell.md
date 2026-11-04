@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "ThinkWELL | Agentic data analytics"
 client: "ThinkWELL"
 lede: "At WELL Health Technologies, I helped build an internal analytics platform that combined customizable dashboards with a model-backed assistant. My work connected the interface to governed data and added checks for the workflows that depended on it."

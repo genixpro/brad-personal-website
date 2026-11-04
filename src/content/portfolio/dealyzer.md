@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "Dealyzer | AI-assisted due diligence"
 industry: "Healthcare"
 companySize: "Large Corporation"

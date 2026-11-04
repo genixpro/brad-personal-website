@@ -9,7 +9,7 @@ type Props = {
 };
 
 export async function getStaticPaths() {
-  const caseStudies = await getCollection('case-studies');
+  const caseStudies = await getCollection('case-studies', ({ data }) => !data.hidden);
 
   return caseStudies.map((caseStudy) => ({
     params: { slug: caseStudy.slug },

@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "ThinkWELL | Agentic data analytics"
 industry: "Healthcare"
 companySize: "Large Corporation"

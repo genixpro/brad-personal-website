@@ -1,4 +1,5 @@
 ---
+hidden: true
 title: "Dealyzer | AI-assisted due diligence"
 client: "Dealyzer"
 lede: "At WELL Health Technologies, I helped build an AI-assisted due diligence application that turned deal documents into structured findings reviewers could trace back to the source."

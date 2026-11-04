@@ -6,7 +6,7 @@ import { portfolioTagColors } from '../data/portfolioTags';
 import { site } from '../data/site';
 import PageLayout from '../layouts/PageLayout.astro';
 
-const portfolioEntries = await getCollection('portfolio');
+const portfolioEntries = await getCollection('portfolio', ({ data }) => !data.hidden);
 ---
 
 <PageLayout canonical={`${site.canonicalUrl}/portfolio`} robots="noindex, follow">
