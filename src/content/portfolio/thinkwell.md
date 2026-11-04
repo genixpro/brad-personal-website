@@ -2,6 +2,8 @@
 title: "ThinkWELL | Agentic data analytics"
 industry: "Healthcare"
 year: "2026"
+cost: "Est. CA$45,000"
+time: "3 months"
 image: "/assets/case-studies/thinkwell/dashboard.png"
 caseStudyHref: "/case-studies/thinkwell"
 tags: ["Generative AI", "Data Analytics", "Health Technology"]
