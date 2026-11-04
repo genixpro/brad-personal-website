@@ -1,17 +1,19 @@
 ---
-import ClientLogoGrid from '../components/home/ClientLogoGrid.astro';
-import ConsultationSection from '../components/home/ConsultationSection.astro';
 import HomeHero from '../components/home/HomeHero.astro';
 import OriginStorySection from '../components/home/OriginStorySection.astro';
-import RevelationSection from '../components/home/RevelationSection.astro';
-import StatGrid from '../components/home/StatGrid.astro';
 import PageLayout from '../layouts/PageLayout.astro';
 import { site } from '../data/site';
+
+const approach = [
+  { title: 'Walk through real cases', copy: 'I sit with the people doing the work and follow a case from the first input to the final decision.' },
+  { title: 'Map the decisions and exceptions', copy: 'I look at what evidence people use, what they do when it’s missing, and where a case needs someone’s judgment.' },
+  { title: 'Build and test the workflow', copy: 'I connect the tools, build in review where it’s needed, and test on routine cases, ambiguous cases, and failures.' }
+];
 ---
 
 <PageLayout
-  title={site.title}
-  description={site.description}
+  title="Bradley Arsenault | AI Workflow Architect"
+  description="Bradley Arsenault builds AI systems for complex business processes, from understanding how teams do the work to delivering software they can use."
   canonical={site.canonicalUrl}
   image={site.imageUrl}
   bodyClass=""
@@ -21,10 +23,178 @@ import { site } from '../data/site';
 >
   <main>
     <HomeHero />
+    <section class="section-light work-section" aria-labelledby="selected-work">
+      <div class="container home-inner">
+        <h2 id="selected-work">Selected work</h2>
+        <p class="section-intro">The problems change. I keep coming back to work where software has to make sense of real-world inputs and do something useful with them.</p>
+        <div class="work-grid">
+          <article class="work-card featured">
+            <img src="/assets/creation-kwola.png" alt="Kwola project artwork" loading="lazy" width="640" height="360" />
+            <div class="card-copy">
+              <p class="label">Open source</p>
+              <h3>Kwola</h3>
+              <p>I built an AI system that explores web applications to find bugs. The project combined reinforcement learning with browser automation.</p>
+              <a href="https://github.com/genixpro/kwola">Explore Kwola on GitHub</a>
+            </div>
+          </article>
+          <div class="work-stack">
+            <article class="work-card card-copy compact">
+              <img src="/assets/portfolio-09.webp" alt="" loading="lazy" width="112" height="112" />
+              <div>
+                <p class="label">Test generation</p>
+                <h3>Checksum.ai</h3>
+                <p>I built models that learn from recorded user sessions and generate tests for how people actually use a product.</p>
+              </div>
+            </article>
+            <article class="work-card card-copy compact">
+              <img src="/assets/portfolio-13.jpg" alt="" loading="lazy" width="112" height="112" />
+              <div>
+                <p class="label">Document processing</p>
+                <h3>Documents and receipts</h3>
+                <p>I built machine learning systems that turn documents and receipts into structured information other software can use.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="approach section-dark" aria-labelledby="approach">
+      <div class="container home-inner">
+        <h2 id="approach">How I work</h2>
+        <ol>
+          {approach.map(({ title, copy }) => (
+            <li><h3>{title}</h3><p>{copy}</p></li>
+          ))}
+        </ol>
+        <p class="contact-copy">I’m interested in Staff and Principal Applied AI roles where I can take a complex workflow from discovery through delivery.</p>
+        <a class="button button-blue" href="https://www.linkedin.com/in/bradaarsenault/">Connect with me on LinkedIn</a>
+      </div>
+    </section>
     <OriginStorySection />
-    <RevelationSection />
-    <StatGrid />
-    <ConsultationSection />
-    <ClientLogoGrid />
   </main>
 </PageLayout>
+
+<style>
+  .home-inner {
+    width: min(1100px, calc(100% - 40px));
+  }
+
+  .work-section,
+  .approach {
+    padding-block: clamp(3rem, 7vw, 6rem);
+  }
+
+  .work-section {
+    background:
+      linear-gradient(var(--color-overlay-white-92), var(--color-overlay-white-92)),
+      url('/assets/workshop-background.png') center / cover,
+      var(--color-bg-subtle);
+    background-blend-mode: normal, luminosity, normal;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    margin-bottom: 0.55rem;
+  }
+
+  .section-intro,
+  .contact-copy {
+    max-width: 65ch;
+    margin-bottom: 1.75rem;
+  }
+
+  .work-grid,
+  .work-stack {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .work-grid {
+    grid-template-columns: 1.35fr 1fr;
+  }
+
+  .work-card {
+    overflow: hidden;
+    border: 1px solid #e0ddee;
+    border-radius: 12px;
+    background: white;
+  }
+
+  .work-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 230px;
+    object-fit: contain;
+    background: #f3f1fb;
+  }
+
+  .compact {
+    display: grid;
+    grid-template-columns: clamp(3.5rem, 8vw, 7rem) minmax(0, 1fr);
+    align-content: center;
+    gap: 1rem;
+  }
+
+  .compact img {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .card-copy {
+    padding: clamp(1rem, 3vw, 1.75rem);
+  }
+
+  .card-copy p {
+    margin-bottom: 0.65rem;
+  }
+
+  .card-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-copy a {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .label {
+    color: #51407c;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .approach {
+    background:
+      linear-gradient(var(--color-overlay-brand-88), var(--color-overlay-brand-88)),
+      url('/assets/ai-control-room.jpg') center / cover,
+      var(--color-text-heading);
+  }
+
+  .approach ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 1.75rem 0 2.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .approach li {
+    padding-left: 0.25rem;
+  }
+
+  .approach li::marker {
+    font-weight: 700;
+  }
+
+  @media (max-width: 720px) {
+    .work-grid,
+    .approach ol {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

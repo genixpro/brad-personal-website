@@ -47,14 +47,13 @@ export const homeHero = {
 } as const;
 
 export const originStory = {
-  title: '"I still remember training my first neural network like it was yesterday."',
+  title: 'How I got into applied AI',
   image: assetPaths.profileRobot,
   imageAlt: 'Bradley Arsenault robot portrait',
   caption: 'Brad, after his 2023 conversion to become a robot.',
   paragraphs: [
-    'In mid-2015, I had been slaving away at Sensibill using traditional machine learning for 11 months. We were getting OK results but with lots of caveats and issues, averaging about 80% accuracy.',
-    'Then I downloaded code for my first luatorch neural network and ran it on our dataset. The result made my jaw drop. It boosted the accuracy from 80% to 97%. Errors dropped 6 x from 20% to just 3%.',
-    'In one weekend of light programming, the new neural network vastly outperformed 11 months of continuous effort using traditional techniques.'
+    'In 2015, I was working on receipt processing at Sensibill. Receipts are easy to recognize and surprisingly hard to turn into useful data. After months of working with traditional machine learning, I tried training my first neural network on the problem.',
+    'What stuck with me was what the model made possible for the work itself. I’ve been following that thread ever since, from teaching software to explore web apps for bugs to building systems that can work through documents and surface what a person needs to review.'
   ]
 } as const;
 

@@ -1,15 +1,12 @@
----
-import { homeHero } from '../../data/home';
----
-
 <section class="hero section-dark">
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="container hero-content">
-    <h1>{homeHero.title}</h1>
-    <p class="hero-subtitle">{homeHero.subtitle}</p>
+    <p class="hero-eyebrow">Bradley Arsenault · AI Workflow Architect</p>
+    <h1>I build AI systems for complex business processes.</h1>
     <p class="hero-copy">
-      {homeHero.copy}
+      I work with teams to understand how a process really runs. I trace the information people use, the decisions they make, and the exceptions that slow them down. Then I build software that can carry the work through several steps, with a clear place for human review.
     </p>
+    <a class="button button-blue" href="#selected-work">See selected work</a>
   </div>
 </section>
 
@@ -49,27 +46,32 @@ import { homeHero } from '../../data/home';
     justify-items: center;
     align-content: center;
     min-height: 429px;
-    padding: 136px 0 20px;
+    padding: 146px 0 54px;
     text-align: center;
   }
 
   .hero h1 {
-    line-height: 1.2;
+    max-width: 920px;
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 5.3vw, 4rem);
+    line-height: 1.1;
   }
 
-  .hero-subtitle {
-    margin-bottom: 16px;
-    font-size: clamp(42px, 4.2vw, 59px);
-    font-weight: 800;
-    line-height: 1.2;
+  .hero-eyebrow {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   .hero-copy {
-    max-width: 860px;
+    max-width: 720px;
     color: var(--color-overlay-white-86);
-    font-size: clamp(22px, 1.8vw, 24px);
-    font-weight: 800;
-    line-height: 1.32;
+    font-size: clamp(17px, 1.8vw, 21px);
+    line-height: 1.55;
+  }
+
+  .hero-content a {
+    margin-top: 1.25rem;
   }
 
   @media (max-width: 640px) {
@@ -85,12 +87,5 @@ import { homeHero } from '../../data/home';
       padding-bottom: 54px;
     }
 
-    .hero-subtitle {
-      font-size: 34px;
-    }
-
-    .hero-copy {
-      max-width: 850px;
-    }
   }
 </style>
