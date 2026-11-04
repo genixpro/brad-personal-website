@@ -1,0 +1,82 @@
+---
+import { aboutPage } from '../../data/about';
+---
+
+<section class="about-panel">
+  <div class="container about-panel-grid">
+    <img src={aboutPage.image} alt="" />
+    <div>
+      <h1>{aboutPage.heading}</h1>
+      {aboutPage.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      <div class="about-links">
+        {aboutPage.links.map(({ label, href, primary }) => (
+          <a class:list={['button', primary ? 'button-blue' : 'button-outline']} href={href}>{label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-panel {
+    padding: 50px 0 64px;
+    background:
+      linear-gradient(var(--color-overlay-white-90), var(--color-overlay-white-86)),
+      url('/assets/robot-parts-background.jpg') center / cover;
+  }
+
+  .about-panel-grid {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 620px);
+    gap: 66px;
+    align-items: center;
+  }
+
+  .about-panel img {
+    width: 360px;
+    height: 486px;
+    object-fit: cover;
+  }
+
+  .about-panel h1 {
+    margin-bottom: 24px;
+    color: var(--color-text-heading);
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .about-panel p {
+    margin-bottom: 1rem;
+    color: var(--color-text-subtle);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .button-outline {
+    color: var(--color-text-heading);
+    border-color: currentColor;
+    text-transform: none;
+  }
+
+  @media (max-width: 900px) {
+    .about-panel-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .about-panel img {
+      justify-self: center;
+      width: min(360px, 100%);
+      height: auto;
+      aspect-ratio: 360 / 486;
+    }
+  }
+</style>

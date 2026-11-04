@@ -53,7 +53,7 @@ export const originStory = {
   caption: 'Brad, after his 2023 conversion to become a robot.',
   paragraphs: [
     'In 2015, I was working on receipt processing at Sensibill. Receipts are easy to recognize and surprisingly hard to turn into useful data. After months of working with traditional machine learning, I tried training my first neural network on the problem.',
-    'What stuck with me was what the model made possible for the work itself. I’ve been following that thread ever since, from teaching software to explore web apps for bugs to building systems that can work through documents and surface what a person needs to review.'
+    'What stuck with me was what the model made possible for the work itself. I’ve been following that thread ever since, from teaching software to explore web apps for bugs to building systems that work through complex material and surface what an expert needs to review.'
   ]
 } as const;
 

@@ -6,13 +6,14 @@ import SubHero from './SubHero.astro';
 export interface Props {
   page: SimplePage;
   slug: string;
+  robots?: string;
 }
 
-const { page, slug }: Props = Astro.props;
+const { page, slug, robots }: Props = Astro.props;
 const cta = page.cta && page.href ? { label: page.cta, href: page.href } : undefined;
 ---
 
-<PageLayout>
+<PageLayout robots={robots}>
   <main class={`subpage subpage-${slug}`}>
     <SubHero title={page.title} intro={page.intro} cta={cta} variant={slug} />
   </main>

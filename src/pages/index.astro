@@ -5,15 +5,15 @@ import PageLayout from '../layouts/PageLayout.astro';
 import { site } from '../data/site';
 
 const approach = [
-  { title: 'Walk through real cases', copy: 'I sit with the people doing the work and follow a case from the first input to the final decision.' },
-  { title: 'Map the decisions and exceptions', copy: 'I look at what evidence people use, what they do when it’s missing, and where a case needs someone’s judgment.' },
-  { title: 'Build and test the workflow', copy: 'I connect the tools, build in review where it’s needed, and test on routine cases, ambiguous cases, and failures.' }
+  { title: 'Work through real cases', copy: 'I sit with the people doing the work and follow a case from the first input to the final decision.' },
+  { title: 'Map the evidence and judgment calls', copy: 'I look at what evidence people rely on, what they do when it’s missing, and where a case needs an expert’s judgment.' },
+  { title: 'Build and evaluate the system', copy: 'I design the models, agents, and integrations, build in expert review where it’s needed, and evaluate on routine cases, ambiguous cases, and failures.' }
 ];
 ---
 
 <PageLayout
-  title="Bradley Arsenault | AI Workflow Architect"
-  description="Bradley Arsenault builds AI systems for complex business processes, from understanding how teams do the work to delivering software they can use."
+  title="Bradley Arsenault | Applied AI Architect"
+  description={site.description}
   canonical={site.canonicalUrl}
   image={site.imageUrl}
   bodyClass=""
@@ -26,7 +26,7 @@ const approach = [
     <section class="section-light work-section" aria-labelledby="selected-work">
       <div class="container home-inner">
         <h2 id="selected-work">Selected work</h2>
-        <p class="section-intro">The problems change. I keep coming back to work where software has to make sense of real-world inputs and do something useful with them.</p>
+        <p class="section-intro">The domains change. I keep coming back to problems where software has to make sense of messy real-world inputs and reach a sound conclusion.</p>
         <div class="work-grid">
           <article class="work-card featured">
             <img src="/assets/creation-kwola.png" alt="Kwola project artwork" loading="lazy" width="640" height="360" />
@@ -66,7 +66,7 @@ const approach = [
             <li><h3>{title}</h3><p>{copy}</p></li>
           ))}
         </ol>
-        <p class="contact-copy">I’m interested in Staff and Principal Applied AI roles where I can take a complex workflow from discovery through delivery.</p>
+        <p class="contact-copy">I’m interested in Staff and Principal Applied AI roles where I can own a hard problem from discovery through delivery.</p>
         <a class="button button-blue" href="https://www.linkedin.com/in/bradaarsenault/">Connect with me on LinkedIn</a>
       </div>
     </section>

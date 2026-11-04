@@ -10,17 +10,17 @@ export type ContactInfo = {
 };
 
 export const site = {
-  name: 'Bradley Arsenault AI',
-  title: 'Bradley Arsenault | Freelance AI Engineer | Home',
+  name: 'Bradley Arsenault',
+  title: 'Bradley Arsenault | Applied AI Architect',
   description:
-    'Bradley (Brad) Arsenault is a reliable & talented AI consultant and freelance AI product engineer with a proven track record of building cutting-edge AI products from the ground up.',
+    'Bradley Arsenault builds AI agent teams that replace a roomful of experts, from understanding how specialists reason through hard cases to delivering systems people rely on.',
   canonicalUrl: 'https://www.bradleyarsenault.me',
   imageUrl: '/assets/site-share-image.png',
   imageWidth: '1024',
   imageHeight: '1024',
   icon: assetPaths.siteIcon,
   brandLogo: assetPaths.brandLogo,
-  copyright: '©2023 by Bradley Arsenault'
+  copyright: '©2026 by Bradley Arsenault'
 } as const;
 
 export const contactInfo: ContactInfo = {
