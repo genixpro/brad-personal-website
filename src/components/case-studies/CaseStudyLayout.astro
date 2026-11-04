@@ -29,7 +29,7 @@ const {
     <article class="case-study-card">
       <h1>{title}</h1>
       {(image || lede || Astro.slots.has('lede')) && (
-        <div class="case-study-lede">
+        <div class:list={["case-study-lede", { "case-study-lede-text": !image }]}>
           {image && <img src={image} alt={imageAlt} />}
           {lede && <p>{lede}</p>}
           <slot name="lede" />
@@ -102,6 +102,10 @@ const {
     gap: 10px;
     align-items: start;
     margin-bottom: 24px;
+  }
+
+  .case-study-lede-text {
+    grid-template-columns: 1fr;
   }
 
   .case-study-lede img {

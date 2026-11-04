@@ -86,6 +86,7 @@ const caseStudies = defineCollection({
     cta: z.string().optional(),
     href: z.string().optional(),
     order: z.number(),
+    featured: z.boolean().optional(),
     failureDiagram: z
       .object({
         sourceLabel: z.string(),

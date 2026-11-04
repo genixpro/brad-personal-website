@@ -28,7 +28,7 @@ const hasBody = caseStudy.body.trim().length > 0;
       title={caseStudy.data.client}
       navLabel={caseStudy.data.client}
       backHref={caseStudy.data.backHref}
-      image={caseStudy.data.image}
+      image={caseStudy.data.featured ? undefined : caseStudy.data.image}
       lede={caseStudy.data.lede}
     >
       {hasBody ? (
