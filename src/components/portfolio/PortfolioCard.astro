@@ -6,12 +6,13 @@ export interface PortfolioProject {
   industry: string;
   size?: string;
   companySize?: string;
-  location: string;
-  cost: string;
+  location?: string;
+  cost?: string;
   year: string;
-  time: string;
+  time?: string;
   image: string;
   fullImage?: string;
+  caseStudyHref?: string;
   ribbon?: string;
   tags: string[];
 }
@@ -33,6 +34,7 @@ const {
   time,
   image,
   fullImage = image,
+  caseStudyHref,
   ribbon,
   tags,
   imageLoading = 'lazy',
@@ -45,7 +47,7 @@ const normalizedSize = companySize ?? size;
 
 <article class="portfolio-card">
   <div class="portfolio-card-head">
-    <h2>{title}</h2>
+    <h2>{caseStudyHref ? <a class="case-study-link" href={caseStudyHref}>{title}</a> : title}</h2>
     {ribbon && <img class="portfolio-ribbon" src={ribbon} alt="" loading={ribbonLoading} />}
   </div>
   <LightboxImageTrigger
@@ -60,14 +62,21 @@ const normalizedSize = companySize ?? size;
   <dl class="portfolio-details">
     <div><dt>Industry:</dt><dd>{industry}</dd></div>
     {normalizedSize && <div><dt>Company Size:</dt><dd>{normalizedSize}</dd></div>}
-    <div><dt>Location:</dt><dd>{location}</dd></div>
+    {location && <div><dt>Location:</dt><dd>{location}</dd></div>}
   </dl>
   <div class="portfolio-tags" aria-label="Project tags">
     {tags.map((tag) => <span style={`--tag-bg: ${tagColors[tag] ?? 'var(--color-tag-default)'}`}>{tag}</span>)}
   </div>
   <dl class="portfolio-metrics">
-    <div><dt>Cost:</dt><dd>{cost}</dd></div>
+    {cost && <div><dt>Cost:</dt><dd>{cost}</dd></div>}
     <div><dt>Year:</dt><dd>{year}</dd></div>
-    <div><dt>Project Time</dt><dd>{time}</dd></div>
+    {time && <div><dt>Project Time</dt><dd>{time}</dd></div>}
   </dl>
 </article>
+
+<style>
+  .case-study-link {
+    color: var(--color-accent-link);
+    text-decoration: underline;
+  }
+</style>

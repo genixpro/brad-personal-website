@@ -4,10 +4,8 @@ client: "ThinkWELL"
 lede: "At WELL Health Technologies, I helped build an internal analytics platform that combined customizable dashboards with a model-backed assistant. My work connected the interface to governed data and added checks for the workflows that depended on it."
 intro: "A customizable analytics dashboard with an AI assistant."
 summary: "How I built dashboard, assistant, and data integration workflows for an internal healthcare analytics platform."
-image: "/assets/case-studies/thinkwell/dashboard.png"
 backHref: "/portfolio"
 order: 2
-featured: true
 paragraphs: []
 ---
 

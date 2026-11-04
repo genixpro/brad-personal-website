@@ -12,14 +12,15 @@ const portfolio = defineCollection({
   schema: z.object({
     title: z.string(),
     industry: z.string(),
-    companySize: z.string(),
-    location: z.string(),
-    cost: z.string(),
+    companySize: z.string().optional(),
+    location: z.string().optional(),
+    cost: z.string().optional(),
     year: z.string(),
-    time: z.string(),
+    time: z.string().optional(),
     image: z.string(),
     fullImage: z.string().optional(),
-    ribbon: z.string(),
+    caseStudyHref: z.string().optional(),
+    ribbon: z.string().optional(),
     tags: z.array(z.string()),
     order: z.number()
   })
@@ -81,12 +82,11 @@ const caseStudies = defineCollection({
     paragraphs: z.array(z.string()),
     intro: z.string(),
     summary: z.string(),
-    image: z.string(),
+    image: z.string().optional(),
     backHref: z.string(),
     cta: z.string().optional(),
     href: z.string().optional(),
     order: z.number(),
-    featured: z.boolean().optional(),
     failureDiagram: z
       .object({
         sourceLabel: z.string(),
