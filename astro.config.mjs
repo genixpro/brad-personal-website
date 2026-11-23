@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 // Public asset folders kept in the repo but left out of the published build.
 // Pair each entry with `hidden: true` on the matching content entries.
 // To reactivate, remove the folder here and the `hidden` flag from the content.
-const unpublishedAssetDirs = ['assets/case-studies/dealyzer', 'assets/case-studies/thinkwell'];
+const unpublishedAssetDirs = [];
 
 const omitUnpublishedAssets = {
   name: 'omit-unpublished-assets',
